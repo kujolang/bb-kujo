@@ -1,0 +1,17 @@
+--- a/plugins/monaco-editor/app.tsx
++++ b/plugins/monaco-editor/app.tsx
+@@ -299,9 +299,12 @@
+     return () => {
+       disposed = true;
+       if (editorRef.current) forgetEditor(editorRef.current);
+-      editorRef.current?.getModel()?.dispose();
+-      editorRef.current?.dispose();
++      const editor = editorRef.current;
++      const model = editor?.getModel();
+       editorRef.current = null;
++      // Detach editor listeners before disposing the model they observe.
++      editor?.dispose();
++      model?.dispose();
+     };
+   }, [activePath, rpc, setSaveState, source]);
+ 
