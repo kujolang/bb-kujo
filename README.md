@@ -8,6 +8,8 @@ Paper and ink. Hard edges. Quiet signal noise.
 
 ![Kujo light — SiteKit paper and ink](screenshots/light-background-still.png)
 
+[Watch a real bb chat walkthrough](videos/bb-kujo-walkthrough.mp4) — opening, model selection, prompt and response.
+
 ## What it changes
 
 - Native **Kujo** light and dark palettes for bb's shell, conversations, controls and panels.
