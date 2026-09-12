@@ -39,3 +39,7 @@ Generated CSS is approximately **134.5 KB**, including the **66,810-byte** optim
 QA used a disposable bb data directory and npm bb-app 0.43.0. This machine's Node 24 native SQLite build crashed; an isolated Node 22.22.0 build ran bb successfully. Intermittent local Node HTTP failures were worked around using the same public bb routes through curl. bb's Theme Preview catalog occasionally reported loading/timeouts; those are not errors in Kujo. Screenshot/UI checks distinguish built-in preview fixtures from real editor/terminal/thread surfaces.
 
 The three supplied X posts were inaccessible. No upstream change or issue was submitted. Native-device coverage, third-party iframe palettes, long-duration profiling and marketplace publication remain outside the verified scope. See [compatibility](compatibility.md) for the exact boundaries.
+
+## Public distribution check
+
+Installation from `git:https://github.com/kujolang/bb-kujo.git` succeeded in the disposable host with `status: running` and no plugin error. The public HTTPS marketplace catalog loaded one entry with no error. Native theme selection succeeded after Git installation. The archive contains the assets, source, generated themes, tests, screenshots, catalog and separate compatibility repair.
