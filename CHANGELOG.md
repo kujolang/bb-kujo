@@ -1,5 +1,11 @@
 # Release notes
 
+## 0.2.1 — 2026-09-12
+
+- Reduce light diff and merge washes so comments and syntax retain AA contrast, including stacked Monaco word highlights.
+- Add a reproducible contrast fixture and regression checks for both code themes.
+- Prepare community marketplace copy, screenshots and submission files.
+
 ## 0.2.0 — 2026-09-12
 
 - Add native light appearance from SiteKit paper, ink and semantic tokens.

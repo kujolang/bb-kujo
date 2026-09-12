@@ -152,9 +152,9 @@
   --diffs-bg-selection-number-override: var(--kujo-surface-3);
   --diffs-bg-hover-override: var(--kujo-surface-2);
   --diffs-bg-addition-override: color-mix(in srgb, var(--kujo-success) 12%, var(--kujo-canvas));
-  --diffs-bg-addition-emphasis-override: color-mix(in srgb, var(--kujo-success) 24%, var(--kujo-canvas));
+  --diffs-bg-addition-emphasis-override: color-mix(in srgb, var(--kujo-success) 18%, var(--kujo-canvas));
   --diffs-bg-deletion-override: color-mix(in srgb, var(--kujo-danger) 12%, var(--kujo-canvas));
-  --diffs-bg-deletion-emphasis-override: color-mix(in srgb, var(--kujo-danger) 24%, var(--kujo-canvas));
+  --diffs-bg-deletion-emphasis-override: color-mix(in srgb, var(--kujo-danger) 18%, var(--kujo-canvas));
   --diffs-light-bg: var(--kujo-canvas);
   --diffs-light: var(--kujo-text);
   --diffs-light-addition-color: var(--kujo-success);

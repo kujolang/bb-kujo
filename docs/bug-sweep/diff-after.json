@@ -1,0 +1,39 @@
+{
+  "kind": "Focused CSS fixture, not a bb app screenshot",
+  "browser": "152.0.7977.84",
+  "cssSha256": "75030d474dde182595c0469140907446814289e9e29d101cce9241d6845ebfc4",
+  "samples": [
+    {
+      "text": "layout reads, animation loop",
+      "foreground": "rgb(93, 93, 93)",
+      "background": "color(srgb 0.915765 0.815529 0.815529)",
+      "fg": [
+        93,
+        93,
+        93
+      ],
+      "bg": [
+        234,
+        208,
+        208
+      ],
+      "ratio": 4.525114003993264
+    },
+    {
+      "text": "forced layouts, timers",
+      "foreground": "rgb(93, 93, 93)",
+      "background": "color(srgb 0.811294 0.876235 0.838118)",
+      "fg": [
+        93,
+        93,
+        93
+      ],
+      "bg": [
+        207,
+        223,
+        214
+      ],
+      "ratio": 4.7594992920395
+    }
+  ]
+}

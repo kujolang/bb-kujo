@@ -1,6 +1,6 @@
 {
   "name": "bb-kujo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "license": "MIT",
   "description": "A Kujo / SiteKit design-system adapter for bb.",
@@ -45,6 +45,7 @@
     "assets/",
     "dist/",
     "README.md",
+    "PLUGIN_OVERVIEW.md",
     "LICENSE",
     "THIRD_PARTY_NOTICES.md",
     "CHANGELOG.md",

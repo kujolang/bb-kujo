@@ -1,0 +1,27 @@
+{
+  "kind": "Isolated Chromium CSS/content-script checks; not whole-app performance",
+  "date": "2026-09-12T17:38:51.421Z",
+  "browser": "152.0.7977.84",
+  "viewports": [
+    375,
+    768,
+    1024,
+    1440,
+    2560
+  ],
+  "cycles": 100,
+  "errors": [],
+  "checks": {
+    "canvas": "#060606",
+    "decoration": "none",
+    "overflow": false
+  },
+  "listenersBefore": 31,
+  "listenersAfter": 27,
+  "baselineTaskSeconds": 0.005724,
+  "themedTaskSeconds": 0.004050999999999999,
+  "baselineHeap": 721616,
+  "themedHeap": 1735184,
+  "baselineLayoutCount": 0,
+  "themedLayoutCount": 0
+}
