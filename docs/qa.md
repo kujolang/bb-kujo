@@ -16,19 +16,23 @@
 - Real xterm created a shell, accepted keyboard input and emitted `\x1b[32mKujo terminal ready\x1b[0m`. Scrollback confirmed the output. A separate command terminal exited with code 0.
 - Working-tree diff panel rendered actual changes using the Kujo diff bridge. Screenshots record the source changes present during QA, not a clean release checkout.
 
-## Release gate still open
+## Follow-up release verification
 
-`scripts/workspace-qa.mjs` confirms editor typing/undo and terminal input/output, but its strict zero-exception assertion fails when Monaco disposes an edited model while switching panels. The stack originates in the bundled `monaco-editor` plugin (`_postDetachModelCleanup` → `dispose`), not the Kujo content script. The same exception reproduces with Kujo disabled ([baseline](workspace-baseline-qa.json)); this is not a clean full-workspace pass. See [workspace-qa.json](workspace-qa.json). No bb internals were patched.
+The original background was too anonymous. The revised signature reuses Kujo's actual workflow hero, optimized to 66,810 bytes, with a monochrome shell mark and 117ms background-only slice displacement every nine seconds. Still/signal captures show a 3px transform and separate reduced-motion capture preserves static artwork. See [signature-qa.json](signature-qa.json).
+
+The Monaco gate has a verified repair: dispose the editor before its saved model. [workspace-repaired-qa.json](workspace-repaired-qa.json) records editor typing/undo, panel switching and terminal input/output with zero exceptions. Original stock failures are retained in workspace-qa.json and workspace-baseline-qa.json. See [monaco-compatibility.md](monaco-compatibility.md) for the separate source patch and checksum-locked apply/check/restore command. This is not an automatic theme side effect or an upstream release claim.
+
+Native `bb marketplace add path:...` accepted the v2 catalog with one entry and no errors. Nine contract tests pass, including the brightest #363636 decorative composite. Host reload/unload and responsive QA pass again after the signature revision.
 
 ## Accessibility
 
-All text ladder, syntax and semantic colors clear 4.5:1 against each of #060606, #111111, #1b1b1b and #2b2b2b. Strong control borders clear 3:1 on #2b2b2b. Primary white action/focus is distinct from semantic green/amber/red/cyan. Links remain underlined, diff signs remain present, and decoration is noninteractive, inert and aria-hidden. Native keyboard interactions are preserved. Disabled controls retain bb's visual treatment and are excluded from minimum text contrast requirements. Native mobile screen readers/device behavior was not certified.
+All text ladder, syntax and semantic colors clear 4.5:1 against each of #060606, #111111, #1b1b1b, #2b2b2b and the conservative #363636 background composite. Strong control borders clear 3:1 on #2b2b2b. Primary white action/focus is distinct from semantic green/amber/red/cyan. Links remain underlined, diff signs remain present, and decoration is noninteractive, inert and aria-hidden. Native keyboard interactions are preserved. Disabled controls retain bb's visual treatment and are excluded from minimum text contrast requirements. Native mobile screen readers/device behavior was not certified.
 
 ## Performance
 
-The isolated 13-second Chromium samples measured **0.003766 seconds** of main-thread work without the theme and **0.004127 seconds** with it. This is a small bounded sample, not an all-day CPU guarantee. Raw values and heap/layout counters are in browser-qa.json. Post-GC listener count decreased after 100 cycles. Heap difference during initial styling includes CSS/font/module setup and is not a leak measurement.
+The isolated 13-second Chromium samples measured **0.006058 seconds** of main-thread work without the theme and **0.002809 seconds** with it. These short samples are noise-level observations, not all-day guarantees. This revised fixture actually paints the sidebar/home artwork and runs the background animation. Raw heap/layout counters are in browser-qa.json. Listener count did not grow after 100 reload cycles.
 
-The frontend bundle is about **1.75 KB**, server entry **446 bytes**, generated CSS about **41.6 KB** including the **22,496-byte** embedded WOFF2. No runtime network, JavaScript timer, mutation observer, rAF or global object writes. Only a two-pixel clipping box animates transform/opacity; hidden tabs pause it. Native editor typing/undo and terminal responsiveness were functionally verified; no precise whole-app latency percentile or long-duration memory slope is claimed.
+Generated CSS is approximately **134.5 KB**, including the **66,810-byte** optimized WebP and **22,496-byte** WOFF2; both are embedded once for offline native theme loading. The app bundle remains about **1.75 KB**. No runtime network, timers, observers, rAF or global object writes. Transform/opacity animation acts only on clipped decorative duplicates; document-hidden and reduced-motion modes pause/disable it. No precise whole-app latency percentile or long-duration memory slope is claimed.
 
 ## Environment and limits
 

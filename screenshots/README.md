@@ -22,3 +22,11 @@ Captured from bb 0.43.0 in Chrome 152.0.7977.84, September 12, 2026.
 The workspace uses an offline echo-provider test thread. Its diagnostic text is fixture output, not an AI-generated implementation report. Preview fixtures contain bb's example conversation, not Kujo copy. No screenshot is a rebuilt imitation of bb.
 
 Loading/error badges and disabled controls are exercised by Theme Preview; actual provider failures and native mobile devices are outside this screenshot set. Tests and qualification notes are in [QA](../docs/qa.md).
+
+## Revised Kujo signature
+
+- `background-still.png`: actual bb home with the Kujo workflow artwork and wordmark.
+- `background-signal.png`: same native UI, decorative animation held at its 3px slice phase.
+- `background-reduced-motion.png`: static artwork retained, animations disabled.
+
+Editor/terminal captures in this revision use the separately repaired bundled Monaco editor. See `docs/workspace-repaired-qa.json`; stock baseline exceptions remain documented.

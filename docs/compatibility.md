@@ -43,6 +43,13 @@ Generic HTML controls and ARIA dialog/menu/listbox/tab roles receive modest corn
 
 Cohesion correction: `[data-timeline-row-id] .opacity-40` restores settled timeline text to full opacity. bb's `ThreadTimelineRows.tsx` declares `PAST_ROW_DIM_CLASS_NAME = "opacity-40"`; composing that with readable token colors makes actual text fail AA. Disabled controls use a different `disabled:opacity-40` class and are not affected. Recheck this narrow fallback whenever the timeline renderer changes.
 
-## Open runtime investigation
+## Verified editor repair
 
-Switching away from an edited-and-undone Monaco file produced an undefined-index exception during model disposal in bb’s bundled editor. Typing, undo and terminal output still passed. The strict workspace QA script deliberately fails on this exception. The same exception also reproduces with Kujo disabled (`workspace-baseline-qa.json`). See `workspace-qa.json`; no claim of a zero-error full workspace run is made.
+Stock bb's model-disposal exception reproduces with Kujo disabled. The separate disposal-order repair now passes workspace QA with no page exceptions. See [monaco-compatibility.md](monaco-compatibility.md). The theme does not apply it automatically; stock upstream remains affected.
+
+## Signature selector additions
+
+- `[data-thread-window]`: actual EmbeddedThreadChat root; quiet static background only. No editor content transform.
+- `[data-sidebar="sidebar"] > .bg-sidebar`: the native scroll region's opaque paint hid the artwork; make this direct child's background transparent over the original sidebar tone.
+- `[data-sidebar="sidebar"] > .shrink-0:first-child::before`: native chrome controls row; adds static Kujo branding before the existing controls without replacing them. Recheck this structural fallback on bb upgrades.
+- Sidebar/home `::before` / `::after`: background artwork and clipped glitch duplicates. Native stylesheet removal removes both. No observer or recurring DOM query.

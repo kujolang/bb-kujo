@@ -4,23 +4,32 @@ A mechanical workspace skin for bb, built from Kujo and SiteKit.
 
 Dark surfaces. Hard edges. Quiet signal noise.
 
-![Kujo in bb — editor and file tree](screenshots/editor-files.png)
+![Kujo in bb — dithered workflow background](screenshots/background-still.png)
 
 ## What it changes
 
 - A native **Kujo** dark palette for bb's shell, conversations, controls and panels.
 - Matching code, terminal and diff colors, generated from one semantic token source.
 - Bundled Departure Mono for technical labels; readable local sans for conversations.
-- Thin borders, restrained corners, static grid architecture and a brief signal accent.
+- The actual kujolang.ai workflow artwork, mechanical rails, a Kujo shell mark and brief background slice glitches.
 - Visible keyboard focus, readable metadata and reduced-motion support.
 
-No analytics, telemetry, remote fonts, runtime network calls or bb fork. The decorative layer never transforms text or controls and is removed on unload.
+No analytics, telemetry, remote fonts, runtime network calls or bb fork. Only decorative artwork shifts; text and controls stay still. Native theme switching removes the background and the content-script disposer removes its edge layer.
 
 ## Install
 
-Requires bb **0.43.x**. From this repository:
+Requires bb **0.43.x**. Install from the public repository:
 
 ```sh
+bb plugin install git:https://github.com/kujolang/bb-kujo.git --yes
+bb theme set plugin:bb-kujo:kujo
+```
+
+Or build a local checkout:
+
+```sh
+git clone https://github.com/kujolang/bb-kujo.git
+cd bb-kujo
 npm ci
 npm run build
 bb plugin install "path:$PWD" --yes
@@ -45,6 +54,7 @@ npm run check         # generated assets, TypeScript, contracts and contrast
 npm run build         # includes bb's actual plugin compiler
 npm run qa            # Chrome lifecycle, motion, focus and idle comparison
 BB_SERVER_URL=http://127.0.0.1:48896 node scripts/host-qa.mjs
+BB_SERVER_URL=http://127.0.0.1:48896 node scripts/signature-qa.mjs
 BB_SERVER_URL=http://127.0.0.1:48896 BB_QA_THREAD_ID=YOUR_TEST_THREAD node scripts/workspace-qa.mjs
 npm pack --dry-run
 ```
@@ -67,4 +77,4 @@ For motion-sensitive users, `prefers-reduced-motion: reduce` disables the signal
 
 MIT. [Font and design attribution](THIRD_PARTY_NOTICES.md) · [Release notes](CHANGELOG.md) · [Marketplace preparation](docs/marketplace.md)
 
-The local package is installable. The strict workspace QA gate remains open for a Monaco model-disposal exception; see the QA record. Public marketplace listing requires the final public repository URL and marketplace review; no listing is claimed here.
+The repository includes a self-hosted marketplace catalog. bb-community approval is not claimed. Stock bb 0.43.0 has a separately verified [Monaco disposal repair](docs/monaco-compatibility.md); full workspace QA passes with that repair applied. It is never applied automatically by this skin.

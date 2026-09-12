@@ -1,6 +1,6 @@
 {
   "kind": "Isolated Chromium CSS/content-script checks; not whole-app performance",
-  "date": "2026-09-12T14:09:21.435Z",
+  "date": "2026-09-12T14:41:23.744Z",
   "browser": "152.0.7977.84",
   "viewports": [
     375,
@@ -18,10 +18,10 @@
   },
   "listenersBefore": 31,
   "listenersAfter": 27,
-  "baselineTaskSeconds": 0.0037660000000000003,
-  "themedTaskSeconds": 0.004126999999999999,
-  "baselineHeap": 721120,
-  "themedHeap": 1558232,
+  "baselineTaskSeconds": 0.006058,
+  "themedTaskSeconds": 0.002808999999999999,
+  "baselineHeap": 721616,
+  "themedHeap": 1717544,
   "baselineLayoutCount": 0,
-  "themedLayoutCount": 1
+  "themedLayoutCount": 0
 }

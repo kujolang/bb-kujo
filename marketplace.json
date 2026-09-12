@@ -1,0 +1,38 @@
+{
+  "$schema": "https://getbb.app/schemas/marketplace-v2.schema.json",
+  "schemaVersion": 2,
+  "name": "kujo",
+  "displayName": "Kujo",
+  "description": "Kujo design-system adapters for bb.",
+  "plugins": [
+    {
+      "id": "bb-kujo",
+      "displayName": "Kujo",
+      "description": "A mechanical workspace skin based on Kujo and SiteKit.",
+      "icon": {
+        "url": "assets/kujo-mark.svg"
+      },
+      "category": "themes-and-appearance",
+      "tags": [
+        "theme",
+        "kujo",
+        "sitekit"
+      ],
+      "screenshots": [
+        "https://raw.githubusercontent.com/kujolang/bb-kujo/main/screenshots/background-still.png",
+        "https://raw.githubusercontent.com/kujolang/bb-kujo/main/screenshots/editor-files.png",
+        "https://raw.githubusercontent.com/kujolang/bb-kujo/main/screenshots/terminal.png"
+      ],
+      "author": {
+        "name": "Robert DeVore",
+        "github": "robertdevore"
+      },
+      "source": {
+        "git": {
+          "url": "https://github.com/kujolang/bb-kujo",
+          "ref": "main"
+        }
+      }
+    }
+  ]
+}

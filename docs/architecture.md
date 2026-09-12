@@ -12,7 +12,7 @@ SiteKit / Kujo → `themes/palette.json` → deterministic generator → bb pale
 | SiteKit gray-900 #111111 | Sidebar, popovers, raised surfaces |
 | Adapter intermediate #1b1b1b; SiteKit gray-700 #2b2b2b | Nested work surfaces and selected/hover tone |
 | SiteKit gray-100 / gray-300 | Primary and muted text |
-| Adapter gray #969696 | Readable tertiary metadata/comments (AA even on #2b2b2b) |
+| Adapter gray #a3a3a3 | Readable tertiary metadata/comments (AA even on the #363636 decorative composite) |
 | Adapter #3e3e3e / #858585 | Quiet separators / identifiable control boundaries |
 | SiteKit white action | Primary action, focus, active edge |
 | SiteKit dark state colors | Success/addition, warning/modification, danger/deletion, info |
@@ -20,13 +20,13 @@ SiteKit / Kujo → `themes/palette.json` → deterministic generator → bb pale
 | SiteKit Departure Mono | Bundled licensed technical section labels |
 | bb local Inter/system sans | Conversation and ordinary controls; deliberate readability adaptation |
 | SiteKit system mono fallback | Code/editor/terminal without overriding user font preferences |
-| Site's ordered dither and brief signal displacement | Static CSS grids and a 2px edge-only signal layer |
+| Site's ordered dither and brief signal displacement | Actual locally bundled workflow hero, static CSS grids, decorative background slices and a 2px signal rail |
 
 The bridge generates all ANSI colors, reverse-color foregrounds, Pierre diff overrides and editor JSON from one source. Brand-discord and PR-merged keep bb's existing external-brand semantics. Syntax is a separate content grammar: muted sage strings, amber numbers, cool types, chalk keywords; UI colors never signal invented execution state.
 
 ## CSS and assets
 
-bb reads theme CSS verbatim and caches it in the client; it does not resolve relative imports or font URLs. `generate.mjs` concatenates tokens, surface and signal CSS and embeds the 22,496-byte WOFF2. This keeps theme switching atomic, fonts offline and the complete CSS below bb's 256,000-character limit. Raw font plus license remain in the distribution for provenance. SVG metadata uses the actual Kujo mark with the XML preamble removed to satisfy bb's icon validator.
+bb reads theme CSS verbatim and caches it in the client; it does not resolve relative imports or font URLs. `generate.mjs` concatenates tokens, surface and signal CSS and embeds the 22,496-byte WOFF2. This keeps theme switching atomic, fonts offline and the complete CSS below bb's 256,000-character limit. The 66,810-byte optimized Kujo hero and small mark are also embedded once as CSS variables. Raw font plus license remain in the distribution for provenance. SVG metadata uses the actual Kujo mark with the XML preamble removed to satisfy bb's icon validator.
 
 In dark appearance the native stylesheet owns all changes. Light appearance falls back to bb's stock light palette and code theme; it is not a Kujo light variant. Changing palettes removes Kujo's CSS. It never changes the user's appearance preference.
 
@@ -34,7 +34,7 @@ In dark appearance the native stylesheet owns all changes. Light appearance fall
 
 A content-script generation appends exactly one inert, aria-hidden decorative node with one child. No IDs, global variables, observer, polling, rAF or layout read. A visibility listener pauses the CSS animation in hidden tabs. A single idempotent disposer removes that listener, the abort listener and the node, whether invoked by abort or the host return contract. Pre-aborted generations mount nothing.
 
-The node has inline `display:none`; only active Kujo dark CSS enables it. Thus other themes, stock light mode and plugin CSS removal cannot leave a visual layer behind. Decoration is two pixels high at the viewport edge, clips itself, ignores pointer input and carries no information. The 12s CSS timeline changes transform/opacity for 100ms; reduced motion, coarse pointers and narrow screens disable it. No editor, terminal, message or alert is transformed.
+The node has inline `display:none`; only active Kujo dark CSS enables it. Thus other themes, stock light mode and plugin CSS removal cannot leave a visual layer behind. Decoration is two pixels high at the viewport edge, clips itself, ignores pointer input and carries no information. The 12s CSS timeline changes transform/opacity for 100ms; reduced motion, coarse pointers and narrow screens disable it. No editor, terminal, message or alert is transformed. Native background pseudo-elements add the actual Kujo hero behind the home, sidebar and thread surfaces; only duplicate slices shift for 117ms every nine seconds. Reduced motion disables slices while keeping the static artwork. Hidden-tab pause is shared through the owned signal node. The sidebar wordmark is a CSS pseudo-element, with no DOM injection or invented status.
 
 ## Maintenance
 

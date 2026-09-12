@@ -51,7 +51,9 @@
     "screenshots/",
     "scripts/",
     "tests/",
-    "tsconfig.json"
+    "tsconfig.json",
+    "compatibility/",
+    "marketplace.json"
   ],
   "scripts": {
     "generate": "node scripts/generate.mjs",
@@ -68,5 +70,13 @@
     "typescript": "^5.9.3",
     "@types/node": "^24.0.0",
     "playwright": "1.62.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kujolang/bb-kujo.git"
+  },
+  "homepage": "https://github.com/kujolang/bb-kujo#readme",
+  "bugs": {
+    "url": "https://github.com/kujolang/bb-kujo/issues"
   }
 }

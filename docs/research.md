@@ -43,3 +43,9 @@ Kujo site's dither canvas and scramble/glitch are promotional treatments. Transl
 1. Foundation: centralized source palette, complete bb semantics, ANSI, code and diffs; no decorative layer.
 2. Cohesion: inspect real bb screens, repair locally redeclared syntax, radii/focus/readability, light fallback, narrow widths and cleanup.
 3. Signature: sidebar technical labels and alignment rail, quiet background architecture, lifecycle-owned signal; repeat interaction and performance checks.
+
+## Follow-up: stronger Kujo signature
+
+The user rejected the edge-only result as too generic. Supersede that initial visual decision: bundle the actual `home-agent-workflow.webp` at 960px (66,810 bytes), preserving source attribution. CSS inversion produces the dark version; native pseudo-elements place it behind home, sidebar and thread surfaces. The background-only duplicate slices move 3px for 117ms/9s. A static Kujo mark/wordmark identifies the shell. Faint text is now #a3a3a3 and all text is tested against the brightest conservative #363636 composite. Static reduced-motion artwork remains visible. No text, terminal/editor surface or control is transformed.
+
+The marketplace uses the actual v2 schema, required for category/screenshots fields. The previous v1 generator mixed in v2 fields and was corrected before public release. Native local catalog validation now passes.
