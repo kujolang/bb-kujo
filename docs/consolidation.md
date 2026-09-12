@@ -9,3 +9,7 @@ SignalBox, project `bb`: Capture **cap_8561c059-d0b6-4e41-bc97-72e43fec7a0f**, S
 Updated the existing Strata note **9264d797-434a-4d76-bac2-e649921de6c1**, revision **3**, titled “Session Memory · bb-kujo · Published Kujo adapter · 2026-09-12”. It now records the user's rejection of the generic appearance, actual Kujo artwork/signal implementation, public repository/catalog, passing repaired-workspace QA, and compatibility boundaries. This supersedes the missing-remote and unresolved-local-QA state. Exact retrieval and “bb-kujo published workflow background repair” both return the revised note. No duplicate note was created.
 
 Added SignalBox correction Capture **cap_3145564d-4a6d-4402-be65-1482c5c6c10e** with verified disposal-order fix evidence, linked by ID to the existing Capture and Signal. Exact retrieval and “checksum-locked” concept retrieval pass. No new Signal or disposition was created: the original still identifies an upstream review item. Existing finding reused; routine successful work rejected from SignalBox.
+
+## Departure Mono / Tabler update
+
+Updated existing Strata note **9264d797-434a-4d76-bac2-e649921de6c1** to revision **4** with typography scope, the pinned Tabler/native-registry adapter, native fallback behavior, commit provenance and passing verification. Exact retrieval and “bb-kujo Departure Mono Tabler” concept search passed. No duplicate note was created. SignalBox: no captures warranted.
