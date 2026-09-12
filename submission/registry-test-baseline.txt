@@ -14,11 +14,11 @@ test at ../bb-marketplace-baseline/test/marketplace.test.mjs:256:1
 ✖ a later entry edit does not change its first addition date (276.471285ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
   + actual - expected
-  
+
   + '2026-01-02T03:04:05+00:00'
   - '2026-01-02T03:04:05Z'
                         ^
-  
+
       at TestContext.<anonymous> (file://<clean-upstream>/test/marketplace.test.mjs:284:12)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1397:25)

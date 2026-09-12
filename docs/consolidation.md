@@ -27,3 +27,9 @@ SignalBox: admitted only the unresolved global catalog/CLI schema mismatch. Capt
 ## Public README
 
 Merged the public README milestone and concise, install-first editorial direction into existing Agent Notes handoff `9264d797-434a-4d76-bac2-e649921de6c1`, revision 7. Source commit: a36357e. Repository search deduplicated the update; exact retrieval and `bb-kujo public README Orwell quick install` both returned the updated note. The next intended topic is other bb plugin ideas. No new unresolved finding was admitted. SignalBox: no captures warranted.
+
+## Pre-submission bug sweep and marketplace assets
+
+Merged the verified light diff contrast fix, v0.2.1 release, submission bundle, registry validation limits and exact next step into existing Agent Notes handoff `9264d797-434a-4d76-bac2-e649921de6c1`, revision 8. Repository search deduplicated the write; exact lookup and `bb-kujo marketplace submission bug sweep light diff contrast` both retrieved revision 8. Evidence commits: `6e84492` (fix), `9c838c2` (assets). No duplicate Strata note was created.
+
+SignalBox admitted one unresolved upstream registry timestamp assertion, independently reproduced on pristine upstream. Capture: `cap_e994333c-01a3-4ef8-9f7a-26eea22f1168`. Signal: `sig_f6081e1b-8671-43e1-8b3b-3d8dbaef95d9`. Project: `bb-marketplace`. Exact lookup of both IDs and `marketplace timestamp` concept search passed. The Signal corrects the raw Capture's initial suite-count typo to the verified **34 passed, 1 failed**. No duplicates were found. Fixed theme contrast, normal QA, temporary harness failures and completed packaging were rejected as Capture material and retained only in the handoff/evidence files.
