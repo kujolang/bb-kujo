@@ -1,0 +1,41 @@
+/* Native CSS is removed/replaced by bb on theme selection. Only dark appearance opts in. */
+:root.dark :where(button, input:not([type="radio"]):not([type="checkbox"]), textarea, select, [role="dialog"], [role="menu"], [role="listbox"], [role="tab"]) {
+  border-radius: 2px;
+}
+:root.dark :where(button, input, textarea, select, a, [tabindex]):focus-visible {
+  outline: 2px solid var(--kujo-interactive);
+  outline-offset: 2px;
+}
+:root.dark ::selection { background: var(--kujo-surface-3); color: var(--kujo-interactive); }
+/* bb redeclares sugar-high variables on fenced blocks; root-only tokens do not reach these. */
+:root.dark .bb-code-highlight {
+  --sh-identifier: var(--kujo-text);
+  --sh-sign: var(--kujo-text-muted);
+  --sh-comment: var(--kujo-text-faint);
+  --sh-keyword: var(--kujo-interactive);
+  --sh-string: var(--kujo-syntax-string);
+  --sh-class: var(--kujo-syntax-type);
+  --sh-property: var(--kujo-text);
+  --sh-entity: var(--kujo-interactive);
+  --sh-jsxliterals: var(--kujo-syntax-number);
+}
+:root.dark [data-markdown-preview] {
+  line-height: 1.7;
+}
+:root.dark [data-markdown-preview] :where(a) {
+  color: var(--kujo-interactive);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+:root.dark [data-markdown-preview] :where(blockquote) {
+  border-inline-start: 2px solid var(--kujo-border-strong);
+  color: var(--kujo-text-muted);
+}
+:root.dark [data-markdown-preview] :where(pre) {
+  background: var(--kujo-canvas);
+  border: 1px solid var(--kujo-border);
+  border-radius: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root.dark :where(button, input, textarea, select, [role="tab"]) { transition: none; }
+}

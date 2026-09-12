@@ -1,0 +1,60 @@
+/* Signature pass: paint only; no content/controls displaced or fabricated state. */
+:root.dark [data-sidebar="sidebar"] {
+  background-image: linear-gradient(90deg, transparent 23px, color-mix(in srgb, var(--kujo-text) 3%, transparent) 24px, transparent 25px);
+}
+:root.dark [data-sidebar="group-label"] {
+  font-family: var(--kujo-label-font);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--kujo-text-muted);
+  border-block-start: 1px solid var(--kujo-border);
+}
+:root.dark [data-sidebar="menu-button"][data-active="true"],
+:root.dark .bb-sidebar-selected-row {
+  border-radius: 2px;
+  box-shadow: inset 2px 0 var(--kujo-interactive);
+}
+/* Existing home container: static raster behind bb's content. No overlay over conversation. */
+:root.dark [id="root-compose-main-panel"] {
+  background-image: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--kujo-text) 3%, transparent), transparent 60%), linear-gradient(color-mix(in srgb, var(--kujo-text) 2%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--kujo-text) 2%, transparent) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+}
+/* A 2px viewport-edge rail, clipped to itself. Cannot intersect readable content. */
+:root.dark .bb-kujo-signal {
+  display: block !important;
+  position: fixed;
+  inset: 0 0 auto;
+  height: 2px;
+  overflow: hidden;
+  contain: strict;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  opacity: .28;
+}
+:root.dark .bb-kujo-signal > span {
+  display: block;
+  width: 96px;
+  height: 2px;
+  margin-inline-start: 22%;
+  background: repeating-linear-gradient(90deg, var(--kujo-text-muted) 0 2px, transparent 2px 4px);
+  opacity: .22;
+  animation: kujo-signal 12s steps(1, end) infinite;
+}
+@keyframes kujo-signal {
+  0%, 98.75%, 100% { transform: translateX(0); opacity: .22; }
+  99% { transform: translateX(2px); opacity: .7; }
+  99.42% { transform: translateX(-1px); opacity: .4; }
+  99.83% { transform: translateX(0); opacity: .22; }
+}
+:root.dark .bb-kujo-signal[data-paused="true"] > span { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce), (max-width: 767px), (pointer: coarse) {
+  :root.dark .bb-kujo-signal { display: none !important; }
+  :root.dark .bb-kujo-signal > span { animation: none; }
+}
+@media (forced-colors: active) {
+  :root.dark .bb-kujo-signal { display: none !important; }
+  :root.dark [id="root-compose-main-panel"], :root.dark [data-sidebar="sidebar"] { background-image: none; }
+}
