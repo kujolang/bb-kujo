@@ -16,7 +16,10 @@ Captured from bb 0.43.0 in Chrome 152.0.7977.84, September 12, 2026.
 | [Tooltip](tooltip.png) / [Toast](toast.png) | Native bb tooltip/notification components |
 | [Command palette](command-palette.png) | Actual quick command palette |
 | [375](viewport-375.png) / [768](viewport-768.png) / [1024](viewport-1024.png) / [2560](viewport-2560.png) | Responsive Theme Preview surfaces |
-| [Light fallback](light-fallback.png) | Stock light appearance with Kujo selected |
+| [Light home](light-background-still.png) | SiteKit paper and ink with Kujo signal artwork |
+| [Light editor](light-editor-files.png) | Native Monaco, file tree and Departure Mono |
+| [Light diff](light-diff.png) | Native light diff colors |
+| [Light terminal](light-terminal.png) | Light terminal with readable ANSI colors |
 | [Reduced motion](reduced-motion.png) | Static dark theme with decorative animation disabled |
 
 The workspace uses an offline echo-provider test thread. Its diagnostic text is fixture output, not an AI-generated implementation report. Preview fixtures contain bb's example conversation, not Kujo copy. No screenshot is a rebuilt imitation of bb.

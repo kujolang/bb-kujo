@@ -17,7 +17,7 @@ const browser=await chromium.launch({channel:process.env.KUJO_BROWSER||'chrome',
 try {
  const context=await browser.newContext({viewport:{width:1600,height:1000}});
  await context.addInitScript(()=>localStorage.setItem('bb.theme','dark'));
- const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ const page=await context.newPage();page.setDefaultTimeout(20000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});
  await page.waitForSelector('.bb-kujo-signal',{state:'attached'});
  await mkdir('screenshots',{recursive:true});await mkdir('artifacts',{recursive:true});
@@ -37,7 +37,7 @@ try {
   await page.getByRole('tab',{name,exact:true}).click();await shot(`preview-${name.toLowerCase().replaceAll(' ','-')}`);
  }
  for(const name of ['Menu','Dialog','Popover','Toast']) {
-  await page.getByRole('button',{name,exact:true}).click();await shot(name.toLowerCase());await page.keyboard.press('Escape');
+  await page.getByRole('button',{name,exact:true}).click();await shot(name.toLowerCase());await page.reload({waitUntil:'domcontentloaded'});await page.getByText('Theme Preview',{exact:true}).first().click();await page.getByRole('button',{name:'Dark mode',exact:true}).click();await page.getByRole('button',{name:'Menu',exact:true}).waitFor();
   // Dialog cancel also handles custom focus-trap implementations.
   await page.waitForTimeout(500);
  }
@@ -48,8 +48,20 @@ try {
  await page.keyboard.press('ControlOrMeta+Shift+P');await shot('command-palette');await page.keyboard.press('Escape');
  for(const width of [375,768,1024,2560]) {await page.setViewportSize({width,height:1000});await shot(`viewport-${width}`);}
  await page.setViewportSize({width:1600,height:1000});
- await page.getByRole('button',{name:'Light mode',exact:true}).click();await shot('light-fallback');assert.equal(await page.locator('[data-kujo-icon]').count(),0);
- assert.equal(await page.locator('.bb-kujo-signal').evaluate(e=>getComputedStyle(e).display),'none');
+ await page.getByRole('button',{name:'Light mode',exact:true}).click();await page.waitForFunction(()=>getComputedStyle(document.documentElement).getPropertyValue('--kujo-canvas').trim()==='#f9f9f9');
+ assert.ok(await page.locator('[data-kujo-icon]').count()>0);
+ assert.equal(await page.locator('.bb-kujo-signal').evaluate(e=>getComputedStyle(e).display),'block');
+ for(const name of ['New thread','Split','Settings','Thread']) {
+  await page.getByRole('tab',{name,exact:true}).click();await shot(`light-preview-${name.toLowerCase().replaceAll(' ','-')}`);
+ }
+ for(const name of ['Menu','Dialog','Popover','Toast']) {
+  await page.getByRole('button',{name,exact:true}).click();await shot(`light-${name.toLowerCase()}`);await page.reload({waitUntil:'domcontentloaded'});await page.getByText('Theme Preview',{exact:true}).first().click();await page.getByRole('button',{name:'Light mode',exact:true}).click();await page.getByRole('button',{name:'Menu',exact:true}).waitFor();
+ }
+ await page.getByRole('button',{name:'Tooltip',exact:true}).hover();await shot('light-tooltip');await page.mouse.move(5,5);
+ await page.keyboard.press('ControlOrMeta+Shift+P');await shot('light-command-palette');await page.keyboard.press('Escape');
+ for(const width of [375,768,1024,2560]) {await page.setViewportSize({width,height:1000});await shot(`light-viewport-${width}`);}
+ await page.setViewportSize({width:1600,height:1000});
+ await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('.bb-kujo-signal > span').evaluate(e=>getComputedStyle(e).animationName),'none');await shot('light-reduced-motion');await page.emulateMedia({reducedMotion:'no-preference'});
  await page.getByRole('button',{name:'Dark mode',exact:true}).click();
  await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('.bb-kujo-signal > span').evaluate(e=>getComputedStyle(e).animationName),'none');await shot('reduced-motion');
  await page.emulateMedia({reducedMotion:'no-preference'});
@@ -59,5 +71,6 @@ try {
  command('plugin','disable','bb-kujo');await page.waitForTimeout(1500);assert.equal(await page.locator('[data-kujo-icon]').count(),0);assert.equal(await page.locator('.bb-kujo-signal').count(),0);
  command('plugin','enable','bb-kujo');command('theme','set','plugin:bb-kujo:kujo');await page.waitForTimeout(1500);assert.equal(await page.locator('.bb-kujo-signal').count(),1);
  await writeFile('artifacts/host-qa.json',JSON.stringify({date:new Date().toISOString(),url,browser:browser.version(),errors,reloads:5,unload:true,themeSwitch:true,reducedMotion:true,technicalFont:font,tablerIcons:await page.locator('[data-kujo-icon]').count()},null,2)+'\n');
+ assert.deepEqual(errors,[]);
  console.log(JSON.stringify({errors,reloads:5,unload:true}));
 } finally {await browser.close();}

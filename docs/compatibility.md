@@ -4,7 +4,7 @@ Target: bb **0.43.0**, desktop/web client, Plugin SDK **0.4.84**. Also inspected
 
 ## Supported extension points
 
-- `bb.themes` and `codeTheme.dark` in the package manifest.
+- `bb.themes` and `codeTheme.dark` / `codeTheme.light` in the package manifest.
 - `definePluginApp`, `app.contentScripts.register`, mount AbortSignal and returned disposer.
 - bb's semantic CSS variables; its code theme supplies Shiki/Pierre and Monaco through the host bridge.
 - All 16 xterm ANSI colors and reverse foregrounds for transcript terminal output.
@@ -13,7 +13,7 @@ Target: bb **0.43.0**, desktop/web client, Plugin SDK **0.4.84**. Also inspected
 
 | Selector | Source at reviewed bb revision | Purpose / failure behavior |
 | --- | --- | --- |
-| `:root.dark` | hooks/useTheme.ts | Host appearance class; stock light fallback if absent |
+| `:root.dark` | hooks/useTheme.ts | Host appearance class; Kujo light tokens when absent |
 | `.bb-code-highlight` | components/ui/markdown-code-highlight.css | Override locally redeclared sugar-high tokens; default syntax if renamed |
 | `[data-markdown-preview]` | Markdown renderer | Reading leading, links, quotes, code borders; default styling if absent |
 | `[data-sidebar="sidebar"]` | components/ui/sidebar.tsx | Static alignment rail; no layout dependency |
@@ -35,7 +35,7 @@ Generic HTML controls and ARIA dialog/menu/listbox/tab roles receive modest corn
 
 ## Plugin limitations / future work
 
-- Dark only. Selecting light appearance yields bb's stock light palette, not an unfinished Kujo light variant.
+- Native light, dark and system appearance are supported under one Kujo theme entry.
 - No fabricated section numbers or runtime labels. Real bb text/state is preserved.
 - No font preference writes or terminal/editor input modifications.
 - Mobile web is checked responsively; native mobile device behavior requires device validation.
@@ -56,4 +56,4 @@ Stock bb's model-disposal exception reproduces with Kujo disabled. The separate 
 
 ## Typography and icons (0.1.1)
 
-Uses native `experimental_icons.register` and `experimental_useCodeTheme`, including the documented same-name nested builtin fallback. Registration ownership and cleanup are managed by bb. The code-theme identity prefix is `bb:plugin:bb-kujo:kujo:dark`, optionally followed by bb’s file fingerprint. Test palette/appearance fallback on SDK upgrades. Core/extended shared icons are covered except native GitHub/Discord marks; provider-specific artwork is untouched. Generic heading/tab/keyboard roles and sidebar buttons/links receive Departure Mono. See `typography-icons.md`.
+Uses native `experimental_icons.register` and `experimental_useCodeTheme`, including the documented same-name nested builtin fallback. Registration ownership and cleanup are managed by bb. The code-theme identity prefix is `bb:plugin:bb-kujo:kujo:${mode}`, optionally followed by bb’s file fingerprint. Test palette/appearance fallback on SDK upgrades. Core/extended shared icons are covered except native GitHub/Discord marks; provider-specific artwork is untouched. Generic heading/tab/keyboard roles and sidebar buttons/links receive Departure Mono. See `typography-icons.md`.

@@ -13,3 +13,7 @@ Added SignalBox correction Capture **cap_3145564d-4a6d-4402-be65-1482c5c6c10e** 
 ## Departure Mono / Tabler update
 
 Updated existing Strata note **9264d797-434a-4d76-bac2-e649921de6c1** to revision **4** with typography scope, the pinned Tabler/native-registry adapter, native fallback behavior, commit provenance and passing verification. Exact retrieval and “bb-kujo Departure Mono Tabler” concept search passed. No duplicate note was created. SignalBox: no captures warranted.
+
+## Light appearance (0.2.0)
+
+Merged the native light-mode milestone, SiteKit mapping, shared signal/font/icon behavior, contrast bound and verification pointers into existing Agent Notes handoff `9264d797-434a-4d76-bac2-e649921de6c1`, revision 5. This explicitly supersedes the prior dark-only/light-fallback boundary. Deduplicated by repository search; exact retrieval and conceptual query `bb-kujo light mode SiteKit paper ink palette` both returned the updated note. No duplicate note or new unresolved finding was created. SignalBox: no captures warranted.

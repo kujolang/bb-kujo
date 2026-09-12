@@ -49,3 +49,15 @@ Installation from `git:https://github.com/kujolang/bb-kujo.git` succeeded in the
 Eleven contract tests and TypeScript/native build pass. The native host run confirms a loaded Departure Mono face, computed Departure navigation typography and active Tabler SVGs. Switching to light/default and disabling Kujo restores native icons; five reloads remain clean with no browser exceptions. See the updated host-qa.json. The frontend bundle is now about **31.4 KB**, including the selected Tabler geometry; React is supplied by bb. The old 1.75 KB figure describes the original effects-only entry, not this release.
 
 Default code/technical typography now uses Departure Mono through the native font variable. Conversation paragraphs remain sans. There is no DOM icon substitution, external font request or runtime icon-library download. SVG source/license and exact mappings are documented in typography-icons.md.
+
+## 0.2.0 — light appearance
+
+Foundation: map SiteKit's `kujo-light` paper/ink tokens and base semantic colors through the same native palette, ANSI, diff and code generator. Twelve contracts cover both palettes, native asset paths, code modes, shared asset embedding and contrast.
+
+Cohesion: native Theme Preview captures both appearances across thread/new/split/settings, menus, dialogs, popovers, notifications, tooltip, command palette and 375/768/1024/2560px widths. Overlay captures reload the isolated preview between examples to avoid retained popup state. The light view retains Departure Mono and Tabler icons. Default palette/unload still restores bb's own styling.
+
+Signature: light uses the original paper/ink artwork at 6% opacity, with the existing brief decorative slice signal and static reduced-motion treatment. Dark retains its original inverted artwork. All light text roles clear 4.5:1 against the conservative #d8d8d8 decoration bound. No readable content is animated. CSS is 143,194 characters, below bb's 256,000-character limit; fonts and workflow image are embedded once.
+
+The new browser sample records 0.001665 seconds of themed task time over 13 seconds, no additional layouts, and no listener growth after 100 cleanup cycles. This is an isolated short sample, not a full-app or all-day benchmark. Raw 0.2.0 records are named `light-release-*.json`; native editor evidence continues to use the explicitly repaired isolated Monaco build documented above.
+
+Real native light and dark Monaco typing/undo and terminal ANSI input/output pass with zero page errors on the repaired isolated editor. The harness explicitly focuses Monaco's native EditContext (or textarea fallback) before sending keyboard events; clicking the rendered code alone did not reliably focus editing. This changes the test driver, not bb or the skin.

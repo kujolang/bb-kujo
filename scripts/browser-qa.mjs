@@ -30,7 +30,8 @@ assert.equal(await page.locator('.bb-kujo-signal > span').evaluate(e=>getCompute
 await page.emulateMedia({reducedMotion:'no-preference'});
 for(const width of [375,768,1024,1440,2560]) {await page.setViewportSize({width,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);}
 await page.evaluate(()=>document.documentElement.className='light');
-assert.equal(await page.locator('.bb-kujo-signal').evaluate(e=>getComputedStyle(e).display),'none');
+assert.equal(await page.locator('.bb-kujo-signal').evaluate(e=>getComputedStyle(e).display),'block');
+assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--kujo-canvas').trim()),'#f9f9f9');
 await page.evaluate(()=>{document.documentElement.className='dark';document.querySelector('#theme-under-test').remove();});
 assert.equal(await page.locator('.bb-kujo-signal').evaluate(e=>getComputedStyle(e).display),'none');
 await page.evaluate(()=>{window.controller.abort();window.dispose();});

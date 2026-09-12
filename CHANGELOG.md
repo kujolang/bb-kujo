@@ -1,5 +1,12 @@
 # Release notes
 
+## 0.2.0 — 2026-09-12
+
+- Add native light appearance from SiteKit paper, ink and semantic tokens.
+- Add matching light code, terminal and diff colors.
+- Retain Departure Mono, Tabler icons and reduced-motion-aware signal artwork in both modes.
+- Share embedded assets; light appearance adds about 8 KB of CSS and no runtime work.
+
 ## 0.1.1
 
 - Extend Departure Mono to technical navigation, headings, tabs, shortcuts and the native code font variable; retain sans for long conversation text.

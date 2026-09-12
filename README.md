@@ -2,16 +2,18 @@
 
 A mechanical workspace skin for bb, built from Kujo and SiteKit.
 
-Dark surfaces. Hard edges. Quiet signal noise.
+Paper and ink. Hard edges. Quiet signal noise.
 
 ![Kujo in bb — dithered workflow background](screenshots/background-still.png)
 
+![Kujo light — SiteKit paper and ink](screenshots/light-background-still.png)
+
 ## What it changes
 
-- A native **Kujo** dark palette for bb's shell, conversations, controls and panels.
+- Native **Kujo** light and dark palettes for bb's shell, conversations, controls and panels.
 - Matching code, terminal and diff colors, generated from one semantic token source.
 - Bundled Departure Mono for navigation, tabs, headings and code; readable local sans for conversations.
-- Tabler outline icons through bb’s native registry, with native artwork restored outside Kujo dark.
+- Tabler outline icons through bb’s native registry, with native artwork restored outside Kujo.
 - The actual kujolang.ai workflow artwork, mechanical rails, a Kujo shell mark and brief background slice glitches.
 - Visible keyboard focus, readable metadata and reduced-motion support.
 
@@ -37,7 +39,7 @@ bb plugin install "path:$PWD" --yes
 bb theme set plugin:bb-kujo:kujo
 ```
 
-Select **Dark** under Settings → Appearance. Kujo deliberately leaves stock light appearance intact. `bb` must be on PATH; the bb-app npm package also provides the CLI. Generated theme assets are committed for Git installs.
+Select **Light**, **Dark**, or **System** under Settings → Appearance. Both appearances share the same Kujo theme entry. `bb` must be on PATH; the bb-app npm package also provides the CLI. Generated theme assets are committed for Git installs.
 
 Remove with `bb plugin remove bb-kujo`. Choose another palette with `bb theme set default`.
 
@@ -48,7 +50,7 @@ npm ci
 npm run dev
 ```
 
-The watcher serializes generation, `bb plugin build .`, and `bb plugin reload bb-kujo`. Install the plugin once before starting it. Edit `themes/palette.json`, `themes/surfaces.css`, `themes/signal.css`, or `src/`; do not edit generated `kujo.css`, `tokens.css`, or `kujo-code.json`.
+The watcher serializes generation, `bb plugin build .`, and `bb plugin reload bb-kujo`. Install the plugin once before starting it. Edit `themes/palette.json`, `themes/palette-light.json`, `themes/surfaces.css`, `themes/signal.css`, or `src/`; do not edit generated `kujo.css`, `tokens.css`, or `kujo-code.json`.
 
 ```sh
 npm run check         # generated assets, TypeScript, contracts and contrast
@@ -57,6 +59,8 @@ npm run qa            # Chrome lifecycle, motion, focus and idle comparison
 BB_SERVER_URL=http://127.0.0.1:48896 node scripts/host-qa.mjs
 BB_SERVER_URL=http://127.0.0.1:48896 node scripts/signature-qa.mjs
 BB_SERVER_URL=http://127.0.0.1:48896 BB_QA_THREAD_ID=YOUR_TEST_THREAD node scripts/workspace-qa.mjs
+BB_SERVER_URL=http://127.0.0.1:48896 BB_QA_APPEARANCE=light node scripts/signature-qa.mjs
+BB_SERVER_URL=http://127.0.0.1:48896 BB_QA_THREAD_ID=YOUR_TEST_THREAD BB_QA_APPEARANCE=light node scripts/workspace-qa.mjs
 npm pack --dry-run
 ```
 
@@ -70,7 +74,7 @@ Workspace screenshots use bb's real thread, Monaco, file tree and xterm surfaces
 
 ## Limits
 
-Dark only. No native-device certification. Third-party iframes and hard-coded plugin colors remain outside the host palette. bb couples terminal background to sidebar tone; its Monaco theme bridge is experimental. Every internal selector is documented, and the supported bb version range is deliberately narrow.
+Light and dark. No native-device certification. Third-party iframes and hard-coded plugin colors remain outside the host palette. bb couples terminal background to sidebar tone; its Monaco theme bridge is experimental. Every internal selector is documented, and the supported bb version range is deliberately narrow.
 
 For motion-sensitive users, `prefers-reduced-motion: reduce` disables the signal animation. Narrow/touch views omit it. The static design needs no animation.
 
