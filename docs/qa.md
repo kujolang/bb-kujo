@@ -43,3 +43,9 @@ The three supplied X posts were inaccessible. No upstream change or issue was su
 ## Public distribution check
 
 Installation from `git:https://github.com/kujolang/bb-kujo.git` succeeded in the disposable host with `status: running` and no plugin error. The public HTTPS marketplace catalog loaded one entry with no error. Native theme selection succeeded after Git installation. The archive contains the assets, source, generated themes, tests, screenshots, catalog and separate compatibility repair.
+
+## 0.1.1 typography and icon verification
+
+Eleven contract tests and TypeScript/native build pass. The native host run confirms a loaded Departure Mono face, computed Departure navigation typography and active Tabler SVGs. Switching to light/default and disabling Kujo restores native icons; five reloads remain clean with no browser exceptions. See the updated host-qa.json. The frontend bundle is now about **31.4 KB**, including the selected Tabler geometry; React is supplied by bb. The old 1.75 KB figure describes the original effects-only entry, not this release.
+
+Default code/technical typography now uses Departure Mono through the native font variable. Conversation paragraphs remain sans. There is no DOM icon substitution, external font request or runtime icon-library download. SVG source/license and exact mappings are documented in typography-icons.md.

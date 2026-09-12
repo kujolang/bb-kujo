@@ -1,5 +1,12 @@
 # Release notes
 
+## 0.1.1
+
+- Extend Departure Mono to technical navigation, headings, tabs, shortcuts and the native code font variable; retain sans for long conversation text.
+- Map 149 shared bb icon names to a bundled Tabler outline subset through the native icon registry.
+- Restore builtin icons on light/default palettes and plugin unload; retain provider/brand marks.
+- Add icon/font contract and native lifecycle checks, with refreshed screenshots.
+
 ## 0.1.0
 
 - Adapt SiteKit's monochrome dark palette, mechanical geometry and technical labels to bb.

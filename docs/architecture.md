@@ -17,9 +17,9 @@ SiteKit / Kujo → `themes/palette.json` → deterministic generator → bb pale
 | SiteKit white action | Primary action, focus, active edge |
 | SiteKit dark state colors | Success/addition, warning/modification, danger/deletion, info |
 | SiteKit 4px unit, 1px borders, 2/4px corners, no shadows | Native spacing/radius/shadow variables; targeted controls |
-| SiteKit Departure Mono | Bundled licensed technical section labels |
+| SiteKit Departure Mono | Bundled licensed navigation, display headings, tabs, shortcuts and code typography |
 | bb local Inter/system sans | Conversation and ordinary controls; deliberate readability adaptation |
-| SiteKit system mono fallback | Code/editor/terminal without overriding user font preferences |
+| Departure Mono with system mono fallback | Native code/technical font variable, without writing user font preferences |
 | Site's ordered dither and brief signal displacement | Actual locally bundled workflow hero, static CSS grids, decorative background slices and a 2px signal rail |
 
 The bridge generates all ANSI colors, reverse-color foregrounds, Pierre diff overrides and editor JSON from one source. Brand-discord and PR-merged keep bb's existing external-brand semantics. Syntax is a separate content grammar: muted sage strings, amber numbers, cool types, chalk keywords; UI colors never signal invented execution state.
@@ -39,3 +39,7 @@ The node has inline `display:none`; only active Kujo dark CSS enables it. Thus o
 ## Maintenance
 
 Edit `palette.json`, `surfaces.css` and `signal.css`; never hand-edit generated outputs. Commit regenerated CSS/JSON so bb can install from Git without lifecycle scripts. Prefer semantic variables over additional selectors. Every internal selector is listed in compatibility.md. If an upstream selector disappears the associated paint becomes a no-op; functionality remains bb's.
+
+## Native icon adapter
+
+The Tabler subset is generated from local source SVGs and registered through `experimental_icons.register`. The native code-theme hook selects active Kujo artwork; the supported same-name nested fallback restores builtin icons outside Kujo dark. Provider/brand marks remain native. See `typography-icons.md` for source/version, coverage, fallback and lifecycle details.

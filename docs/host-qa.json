@@ -1,10 +1,12 @@
 {
-  "date": "2026-09-12T14:40:30.474Z",
+  "date": "2026-09-12T15:04:46.133Z",
   "url": "http://127.0.0.1:48896",
   "browser": "152.0.7977.84",
   "errors": [],
   "reloads": 5,
   "unload": true,
   "themeSwitch": true,
-  "reducedMotion": true
+  "reducedMotion": true,
+  "technicalFont": "\"Kujo Departure Mono\", \"Kujo Departure Mono\", SFMono-Regular, \"Cascadia Code\", \"Roboto Mono\", \"Liberation Mono\", Menlo, Consolas, monospace",
+  "tablerIcons": 28
 }

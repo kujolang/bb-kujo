@@ -10,7 +10,8 @@ Dark surfaces. Hard edges. Quiet signal noise.
 
 - A native **Kujo** dark palette for bb's shell, conversations, controls and panels.
 - Matching code, terminal and diff colors, generated from one semantic token source.
-- Bundled Departure Mono for technical labels; readable local sans for conversations.
+- Bundled Departure Mono for navigation, tabs, headings and code; readable local sans for conversations.
+- Tabler outline icons through bb’s native registry, with native artwork restored outside Kujo dark.
 - The actual kujolang.ai workflow artwork, mechanical rails, a Kujo shell mark and brief background slice glitches.
 - Visible keyboard focus, readable metadata and reduced-motion support.
 
@@ -63,7 +64,7 @@ Host QA requires an isolated running bb with Kujo and the bundled Theme Preview 
 
 ## Screenshots and evidence
 
-[All screenshots](screenshots/README.md) · [QA results](docs/qa.md) · [Architecture](docs/architecture.md) · [Compatibility](docs/compatibility.md) · [Source review](docs/research.md)
+[All screenshots](screenshots/README.md) · [QA results](docs/qa.md) · [Architecture](docs/architecture.md) · [Compatibility](docs/compatibility.md) · [Typography and icons](docs/typography-icons.md) · [Source review](docs/research.md)
 
 Workspace screenshots use bb's real thread, Monaco, file tree and xterm surfaces with an offline echo fixture. `preview-*` and overlay screenshots use bb's bundled Theme Preview fixtures, not a recreated bb interface.
 

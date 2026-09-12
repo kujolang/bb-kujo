@@ -53,3 +53,7 @@ Stock bb's model-disposal exception reproduces with Kujo disabled. The separate 
 - `[data-sidebar="sidebar"] > .bg-sidebar`: the native scroll region's opaque paint hid the artwork; make this direct child's background transparent over the original sidebar tone.
 - `[data-sidebar="sidebar"] > .shrink-0:first-child::before`: native chrome controls row; adds static Kujo branding before the existing controls without replacing them. Recheck this structural fallback on bb upgrades.
 - Sidebar/home `::before` / `::after`: background artwork and clipped glitch duplicates. Native stylesheet removal removes both. No observer or recurring DOM query.
+
+## Typography and icons (0.1.1)
+
+Uses native `experimental_icons.register` and `experimental_useCodeTheme`, including the documented same-name nested builtin fallback. Registration ownership and cleanup are managed by bb. The code-theme identity prefix is `bb:plugin:bb-kujo:kujo:dark`, optionally followed by bb’s file fingerprint. Test palette/appearance fallback on SDK upgrades. Core/extended shared icons are covered except native GitHub/Discord marks; provider-specific artwork is untouched. Generic heading/tab/keyboard roles and sidebar buttons/links receive Departure Mono. See `typography-icons.md`.

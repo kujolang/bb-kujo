@@ -35,17 +35,24 @@ try {
  await page.getByRole('button',{name:/Open new tab/}).click();
  await page.getByText('Start terminal',{exact:true}).click();
  await page.locator('.xterm-helper-textarea').waitFor({state:'attached'});
+ await page.waitForTimeout(1500);
  await page.locator('.xterm-helper-textarea').focus();
  await page.keyboard.insertText("printf '\\033[32mKujo terminal ready\\033[0m\\n'");
  await page.keyboard.press('Enter');await page.waitForTimeout(1000);
- await page.screenshot({path:'screenshots/terminal.png'});
- const output=await page.evaluate(async id=>{
+ const readOutput=()=>page.evaluate(async id=>{
   const {sessions}=await(await fetch(`/api/v1/terminals?threadId=${id}`)).json();
   const session=sessions.filter(s=>s.status==='running').sort((a,b)=>b.createdAt-a.createdAt)[0];
   const data=await(await fetch(`/api/v1/terminals/${session.id}/output`)).json();
   return data.chunks.map(c=>atob(c.dataBase64)).join('');
  },threadId);
+ let output='';
+ for(let attempt=0;attempt<30;attempt++) {
+  output=await readOutput();
+  if(output.includes('\x1b[32mKujo terminal ready\x1b[0m')) break;
+  await page.waitForTimeout(500);
+ }
  assert.ok(output.includes('\x1b[32mKujo terminal ready\x1b[0m'));
+ await page.screenshot({path:'screenshots/terminal.png'});
  await mkdir('artifacts',{recursive:true});
  await writeFile('artifacts/workspace-qa.json',JSON.stringify({date:new Date().toISOString(),browser:browser.version(),editorTyping:true,editorUndo:true,terminalInputOutput:true,errors},null,2)+'\n');
  assert.deepEqual(errors,[]);
