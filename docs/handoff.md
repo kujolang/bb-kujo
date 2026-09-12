@@ -31,3 +31,9 @@ User requested actual app opening/new chat/model response footage. Commit 4be9f4
 Provider compatibility remains distinct from bb-kujo: the global custom catalog lacks supports_reasoning_summaries and supports_parallel_tool_calls required by CLI 0.144.4. Temporary copy plus local isolated-host executable wrapper unblocked parsing without global changes. The daemon's normal provider environment does not forward BB_CODEX_BRIDGE launch variables; its prepended executable directory accepts the temporary wrapper. 5.6-Sol subsequently rejected reasoning.context for Responses Lite, so the successful capture uses 5.5. The wrapper is a recording-only workaround, not plugin code. SignalBox capture cap_46365212-67ee-4f85-a81b-59ac8bd67f0c and signal sig_d98397c7-f03b-42fd-88f4-3d62bb2ed2d4 preserve the unresolved global catalog/CLI compatibility review; exact and concept retrieval passed. Completed video work itself was not captured there.
 
 Recall cues: bb-kujo real video walkthrough Codex 5.5 recording; live chat theme description MP4; catalog CLI compatibility.
+
+## Public README — 2026-09-12
+
+User requested the Orwell writing skill to prepare a short README for sharing with developers. Commit a36357e puts the two-command install near the top, retains light/dark previews and the real walkthrough, links to Kujo and SiteKit, and moves local development/QA instructions to docs/development.md. Compatibility, reduced motion, licensing and attribution remain available. All local links resolve; Kujo, bb, SiteKit and the walkthrough URL were checked. No runtime code changed. Editorial direction: keep the public entry point concise and useful to newcomers; leave implementation history and QA detail in linked docs. The intended next conversation is other bb plugin ideas, not implementation of an unspecified plugin. No new unresolved finding warrants SignalBox capture.
+
+Recall cues: bb-kujo public README Orwell quick install newcomer documentation.
