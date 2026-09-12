@@ -17,8 +17,8 @@ test('manifest has canonical, unique native theme and existing local assets',asy
  assert.equal(manifest.bb.name,'Kujo');
  assert.equal(new Set(manifest.bb.themes.map(t=>t.id)).size,manifest.bb.themes.length);
  const t=manifest.bb.themes[0]; assert.equal(t.id,'kujo');
- for(const f of [manifest.bb.server,manifest.bb.app,manifest.bb.branding.icon,t.css,t.codeTheme.dark]) assert.ok((await stat(new URL(f,root))).isFile());
- assert.deepEqual(Object.keys(t.codeTheme),['dark']);
+ for(const f of [manifest.bb.server,manifest.bb.app,manifest.bb.branding.icon,t.css,t.codeTheme.dark,t.codeTheme.light]) assert.ok((await stat(new URL(f,root))).isFile());
+ assert.deepEqual(Object.keys(t.codeTheme),['dark','light']);
  assert.ok(css.length<256000);
 });
 test('all core text and syntax clears WCAG AA on every neutral surface',()=>{
@@ -64,11 +64,27 @@ test('Tabler mappings bundle safe local 24px outline artwork and preserve brand 
  }
  const adapter=await read('src/icons.ts');
  assert.match(adapter,/experimental_icons.register/);
- assert.match(adapter,/mode !== 'dark'/);
+ assert.match(adapter,/kujo:\$\{mode\}/);
  assert.doesNotMatch(adapter,/MutationObserver|querySelector|innerHTML|fetch\(/);
 });
 test('Departure is the technical font while ordinary prose retains the sans stack',()=>{
  assert.match(css,/--font-mono: "Kujo Departure Mono"/);
  assert.match(css,/--font-sans: "Inter Variable"/);
  assert.match(css,/font-synthesis: none/);
+});
+
+test('light palette and code theme share readable SiteKit paper and ink tokens',async()=>{
+ const light=JSON.parse(await read('themes/palette-light.json'));
+ const theme=JSON.parse(await read('themes/kujo-code-light.json'));
+ assert.equal(theme.type,'light'); assert.equal(theme.colors['editor.background'],light.canvas);
+ assert.equal(light.canvas,'#f9f9f9'); assert.equal(light.text,'#060606');
+ // Conservative darkest composite: paper with 5% rail, 6% black art, 2.5% signal.
+ for(const fg of ['text','text-muted','text-faint','interactive','success','warning','danger','info','syntax-string','syntax-number','syntax-type','syntax-magenta'])
+  for(const bg of [light.canvas,light['surface-1'],light['surface-2'],light['surface-3'],'#d8d8d8'])
+   assert.ok(contrast(light[fg],bg)>=4.5,`${fg}/${bg}: ${contrast(light[fg],bg)}`);
+ assert.ok(contrast(light['border-strong'],light['surface-3'])>=3);
+ assert.equal(theme.tokenColors.length,code.tokenColors.length);
+ assert.match(css,/:root:not\(\.dark\)/);
+ assert.equal((css.match(/data:font\/woff2/g)||[]).length,1);
+ assert.equal((css.match(/data:image\/webp/g)||[]).length,1);
 });

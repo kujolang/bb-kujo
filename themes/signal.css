@@ -1,10 +1,10 @@
 /* Kujo's actual workflow hero, locally bundled. No readable element is transformed. */
-:root.dark :is([data-sidebar="sidebar"], [id="root-compose-main-panel"], [data-thread-window]) {
+:root :is([data-sidebar="sidebar"], [id="root-compose-main-panel"], [data-thread-window]) {
   position: relative;
   isolation: isolate;
 }
-:root.dark :is([data-sidebar="sidebar"], [id="root-compose-main-panel"], [data-thread-window])::before,
-:root.dark :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::after {
+:root :is([data-sidebar="sidebar"], [id="root-compose-main-panel"], [data-thread-window])::before,
+:root :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -12,28 +12,28 @@
   pointer-events: none;
   user-select: none;
   background: var(--kujo-workflow) right bottom / 960px auto no-repeat;
-  filter: invert(1);
+  filter: var(--kujo-art-filter);
   opacity: .12;
 }
 /* Keep the artwork in the background; text is tested against the worst-case #363636 composite. */
-:root.dark [data-sidebar="sidebar"]::before,
-:root.dark [data-sidebar="sidebar"]::after {
+:root [data-sidebar="sidebar"]::before,
+:root [data-sidebar="sidebar"]::after {
   background-position: 68% bottom;
   background-size: auto 440px;
   mask-image: linear-gradient(transparent 25%, #000 75%);
   opacity: .085;
 }
-:root.dark [data-thread-window]::before {
+:root [data-thread-window]::before {
   background-size: 960px auto;
   mask-image: linear-gradient(transparent 10%, #000 100%);
   opacity: .035;
 }
-:root.dark [id="root-compose-main-panel"]::before {
+:root [id="root-compose-main-panel"]::before {
   background-size: cover;
   mask-image: linear-gradient(90deg, transparent, #000 70%);
 }
 /* Duplicate ONLY decorative slices, not the underlying app pixels. */
-:root.dark :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::after {
+:root :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::after {
   inset-inline: 4px;
   clip-path: polygon(0 64%, 100% 64%, 100% 65%, 0 65%, 0 80%, 100% 80%, 100% 80.6%, 0 80.6%);
   opacity: 0;
@@ -45,10 +45,10 @@
   98.7% { transform: translateX(-2px); opacity: .02; }
   99.3% { transform: translateX(0); opacity: 0; }
 }
-:root.dark [data-sidebar="sidebar"] {
+:root [data-sidebar="sidebar"] {
   background-image: linear-gradient(90deg, transparent 23px, color-mix(in srgb, var(--kujo-text) 5%, transparent) 24px, transparent 25px);
 }
-:root.dark [data-sidebar="group-label"] {
+:root [data-sidebar="group-label"] {
   font-family: var(--kujo-label-font);
   font-size: 11px;
   font-weight: 400;
@@ -57,17 +57,17 @@
   color: var(--kujo-text-muted);
   border-block-start: 1px solid var(--kujo-border);
 }
-:root.dark [data-sidebar="menu-button"][data-active="true"],
-:root.dark .bb-sidebar-selected-row {
+:root [data-sidebar="menu-button"][data-active="true"],
+:root .bb-sidebar-selected-row {
   border-radius: 0;
   box-shadow: inset 2px 0 var(--kujo-interactive);
 }
-:root.dark [id="root-compose-main-panel"] {
+:root [id="root-compose-main-panel"] {
   background-image: linear-gradient(color-mix(in srgb, var(--kujo-text) 3%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--kujo-text) 3%, transparent) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 /* Owned viewport-edge strip. Background glitches above survive without JS. */
-:root.dark .bb-kujo-signal {
+:root .bb-kujo-signal {
   display: block !important;
   position: fixed;
   inset: 0 0 auto;
@@ -79,7 +79,7 @@
   z-index: 1;
   opacity: .28;
 }
-:root.dark .bb-kujo-signal > span {
+:root .bb-kujo-signal > span {
   display: block;
   width: 160px;
   height: 2px;
@@ -94,22 +94,22 @@
   99.42% { transform: translateX(-1px); opacity: .4; }
   99.83% { transform: translateX(0); opacity: .22; }
 }
-:root.dark .bb-kujo-signal[data-paused="true"] > span,
-:root.dark:has(.bb-kujo-signal[data-paused="true"]) :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::after { animation-play-state: paused; }
+:root .bb-kujo-signal[data-paused="true"] > span,
+:root:has(.bb-kujo-signal[data-paused="true"]) :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::after { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce), (max-width: 767px), (pointer: coarse) {
-  :root.dark .bb-kujo-signal { display: none !important; }
-  :root.dark .bb-kujo-signal > span,
-  :root.dark :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::after { animation: none; opacity: 0; }
+  :root .bb-kujo-signal { display: none !important; }
+  :root .bb-kujo-signal > span,
+  :root :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::after { animation: none; opacity: 0; }
 }
 @media (forced-colors: active) {
-  :root.dark .bb-kujo-signal { display: none !important; }
-  :root.dark :is([data-sidebar="sidebar"], [id="root-compose-main-panel"], [data-thread-window])::before,
-  :root.dark :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::after { display: none; }
-  :root.dark [id="root-compose-main-panel"], :root.dark [data-sidebar="sidebar"] { background-image: none; }
+  :root .bb-kujo-signal { display: none !important; }
+  :root :is([data-sidebar="sidebar"], [id="root-compose-main-panel"], [data-thread-window])::before,
+  :root :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::after { display: none; }
+  :root [id="root-compose-main-panel"], :root [data-sidebar="sidebar"] { background-image: none; }
 }
 
 /* Static product signature; no invented workspace status or replaced bb labels. */
-:root.dark [data-sidebar="sidebar"] > .shrink-0:first-child::before {
+:root [data-sidebar="sidebar"] > .shrink-0:first-child::before {
   content: "KUJO // BB";
   display: block;
   flex: 0 0 auto;
@@ -123,4 +123,7 @@
 }
 
 /* Sidebar scroll region otherwise paints over the parent artwork. */
-:root.dark [data-sidebar="sidebar"] > .bg-sidebar { background-color: transparent; }
+:root [data-sidebar="sidebar"] > .bg-sidebar { background-color: transparent; }
+
+/* Light paper needs less ink texture to preserve SiteKit gray-500 contrast. */
+:root:not(.dark) :is([data-sidebar="sidebar"], [id="root-compose-main-panel"])::before { opacity: .06; }

@@ -2,7 +2,7 @@ import { createElement } from 'react';
 import { experimental_Icon, experimental_useCodeTheme, type PluginAppBuilder } from '@get-bb/plugin-sdk/app';
 import { artwork, iconMap } from './tabler.generated.ts';
 
-const kujoPrefix = 'bb:plugin:bb-kujo:kujo:dark';
+
 
 export function registerTablerIcons(app: PluginAppBuilder): void {
   for (const [name, tabler] of Object.entries(iconMap)) {
@@ -10,7 +10,8 @@ export function registerTablerIcons(app: PluginAppBuilder): void {
       name,
       component: function KujoIcon({ className }) {
         const { mode, name: theme } = experimental_useCodeTheme();
-        if (mode !== 'dark' || !(theme === kujoPrefix || theme.startsWith(kujoPrefix + ':'))) {
+        const kujoPrefix = `bb:plugin:bb-kujo:kujo:${mode}`;
+        if (!(theme === kujoPrefix || theme.startsWith(kujoPrefix + ':'))) {
           // bb explicitly resolves a same-name icon within its override to its builtin.
           // This preserves native artwork for other palettes without DOM observation.
           return createElement(experimental_Icon, { name, className });

@@ -1,6 +1,6 @@
 {
   "name": "bb-kujo",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "license": "MIT",
   "description": "A Kujo / SiteKit design-system adapter for bb.",
@@ -19,7 +19,7 @@
   },
   "bb": {
     "name": "Kujo",
-    "description": "Mechanical workspace skin based on Kujo and SiteKit. Dark surfaces, hard edges, quiet signal.",
+    "description": "Mechanical workspace skin based on Kujo and SiteKit. Paper and ink, hard edges, quiet signal.",
     "branding": {
       "icon": "./assets/kujo-mark.svg"
     },
@@ -30,10 +30,11 @@
       {
         "id": "kujo",
         "name": "Kujo",
-        "description": "Kujo dark workspace with matching code, diff and terminal colors.",
+        "description": "Kujo light and dark workspace with matching code, diff and terminal colors.",
         "css": "./themes/kujo.css",
         "codeTheme": {
-          "dark": "./themes/kujo-code.json"
+          "dark": "./themes/kujo-code.json",
+          "light": "./themes/kujo-code-light.json"
         }
       }
     ]

@@ -1,0 +1,20 @@
+{
+  "canvas": "#f9f9f9",
+  "surface-1": "#ffffff",
+  "surface-2": "#eeeeee",
+  "surface-3": "#eeeeee",
+  "text": "#060606",
+  "text-muted": "#2b2b2b",
+  "text-faint": "#5d5d5d",
+  "border": "#b8b8b8",
+  "border-strong": "#5d5d5d",
+  "interactive": "#060606",
+  "success": "#0f6b35",
+  "warning": "#765000",
+  "danger": "#a31515",
+  "info": "#1646d2",
+  "syntax-string": "#275c31",
+  "syntax-number": "#765000",
+  "syntax-type": "#075d6c",
+  "syntax-magenta": "#65436b"
+}
