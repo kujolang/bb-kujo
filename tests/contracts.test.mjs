@@ -53,3 +53,22 @@ test('text remains AA over the brightest combined background decoration',()=>{
  for(const fg of ['text','text-muted','text-faint','interactive','success','warning','danger','info','syntax-string','syntax-number','syntax-type','syntax-magenta'])
   assert.ok(contrast(p[fg],'#363636')>=4.5,`${fg} on decorative composite`);
 });
+test('Tabler mappings bundle safe local 24px outline artwork and preserve brand marks',async()=>{
+ const icons=JSON.parse(await read('themes/icons.json'));
+ assert.equal(Object.keys(icons).length,149);
+ for(const name of ['Github','GithubLogo','Discord','DiscordLogo']) assert.equal(icons[name],undefined);
+ for(const name of new Set(Object.values(icons))) {
+  const svg=await read(`assets/tabler/${name}.svg`);
+  assert.match(svg,/viewBox="0 0 24 24"/);
+  assert.doesNotMatch(svg,/<script|<foreignObject|href=|\son\w+=/i);
+ }
+ const adapter=await read('src/icons.ts');
+ assert.match(adapter,/experimental_icons.register/);
+ assert.match(adapter,/mode !== 'dark'/);
+ assert.doesNotMatch(adapter,/MutationObserver|querySelector|innerHTML|fetch\(/);
+});
+test('Departure is the technical font while ordinary prose retains the sans stack',()=>{
+ assert.match(css,/--font-mono: "Kujo Departure Mono"/);
+ assert.match(css,/--font-sans: "Inter Variable"/);
+ assert.match(css,/font-synthesis: none/);
+});

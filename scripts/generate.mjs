@@ -31,7 +31,7 @@ assign('surface-attention',`color-mix(in srgb, ${v('warning')} 12%, ${v('canvas'
 assign('pill-surface',v('surface-1')); assign('pill-surface-selected',v('surface-3'));
 assign('pill-shadow shadow-2xs shadow-xs shadow-sm shadow shadow-md shadow-lg shadow-xl shadow-2xl shadow-lift','none');
 assign('font-sans','"Inter Variable", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif');
-assign('font-mono','"SFMono-Regular", "Cascadia Code", "Roboto Mono", "Liberation Mono", Menlo, Consolas, monospace');
+assign('font-mono','"Kujo Departure Mono", "SFMono-Regular", "Cascadia Code", "Roboto Mono", "Liberation Mono", Menlo, Consolas, monospace');
 assign('diffs-font-family','var(--font-mono)');
 assign('radius','4px'); assign('radius-sm','2px'); assign('radius-md','2px'); assign('radius-lg','4px'); assign('radius-xl','4px');
 assign('spacing','0.25rem');
@@ -73,3 +73,24 @@ for(const [file,content] of [['themes/tokens.css',tokens],['themes/kujo.css',css
  else await writeFile(join(root,file),content);
 }
 console.log(`Kujo: ${css.length} CSS characters; ${rules.length} code token groups.`);
+// Only a pinned, audited subset of Tabler's local SVGs enters the runtime bundle.
+const iconMap=JSON.parse(await read('themes/icons.json'));
+const artwork={};
+for(const name of [...new Set(Object.values(iconMap))].sort()) {
+ const svg=await read(`assets/tabler/${name}.svg`);
+ if(/<script|<foreignObject|href=|\son\w+=/i.test(svg)) throw new Error(`Unsafe SVG: ${name}`);
+ const body=svg.replace(/^[\s\S]*?<svg\b[^>]*>/,'').replace(/<\/svg>\s*$/,'');
+ const nodes=[];
+ const rest=body.replace(/<(path|circle|rect|line|polyline|polygon|ellipse)\b([^>]*?)\/>/g,(_,tag,raw)=>{
+  const attrs={};
+  for(const [,key,value] of raw.matchAll(/([\w:-]+)="([^"]*)"/g)) attrs[key.replace(/-([a-z])/g,(_,letter)=>letter.toUpperCase())]=value;
+  if(!(attrs.stroke==='none'&&attrs.fill==='none')) nodes.push([tag,attrs]);
+  return '';
+ });
+ if(rest.trim()||!nodes.length) throw new Error(`Unsupported SVG structure: ${name}`);
+ artwork[name]=nodes;
+}
+const iconSource=`/* Generated from Tabler Icons 3.46.0 (MIT); assets/Tabler-LICENSE.txt. */\nexport const iconMap: Readonly<Record<string,string>> = ${JSON.stringify(iconMap)};\nexport const artwork: Readonly<Record<string,readonly (readonly [string, Readonly<Record<string,string>>])[]>> = ${JSON.stringify(artwork)};\n`;
+if(process.argv.includes('--check')) { if(await read('src/tabler.generated.ts')!==iconSource) throw new Error('Tabler artwork is stale; npm run generate'); }
+else await writeFile(join(root,'src/tabler.generated.ts'),iconSource);
+console.log(`Tabler: ${Object.keys(iconMap).length} bb names; ${Object.keys(artwork).length} local SVGs.`);

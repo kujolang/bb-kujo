@@ -94,7 +94,7 @@
   --shadow-2xl: none;
   --shadow-lift: none;
   --font-sans: "Inter Variable", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", "Liberation Mono", Menlo, Consolas, monospace;
+  --font-mono: "Kujo Departure Mono", "SFMono-Regular", "Cascadia Code", "Roboto Mono", "Liberation Mono", Menlo, Consolas, monospace;
   --diffs-font-family: var(--font-mono);
   --radius: 4px;
   --radius-sm: 2px;

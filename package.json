@@ -1,6 +1,6 @@
 {
   "name": "bb-kujo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "license": "MIT",
   "description": "A Kujo / SiteKit design-system adapter for bb.",
@@ -67,9 +67,11 @@
   },
   "devDependencies": {
     "@get-bb/plugin-sdk": "0.4.84",
-    "typescript": "^5.9.3",
     "@types/node": "^24.0.0",
-    "playwright": "1.62.1"
+    "@types/react": "^19.2.0",
+    "playwright": "1.62.1",
+    "react": "^19.2.0",
+    "typescript": "^5.9.3"
   },
   "repository": {
     "type": "git",
