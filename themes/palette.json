@@ -1,6 +1,6 @@
 {
   "canvas":"#060606", "surface-1":"#111111", "surface-2":"#1b1b1b", "surface-3":"#2b2b2b",
-  "text":"#eeeeee", "text-muted":"#b8b8b8", "text-faint":"#969696",
+  "text":"#eeeeee", "text-muted":"#b8b8b8", "text-faint":"#a3a3a3",
   "border":"#3e3e3e", "border-strong":"#858585", "interactive":"#ffffff",
   "success":"#6fdc8c", "warning":"#ffd166", "danger":"#ff8c8c", "info":"#7dd3fc",
   "syntax-string":"#a8c5a2", "syntax-number":"#d8bd8a", "syntax-type":"#a7c7d1", "syntax-magenta":"#c8b6ca"

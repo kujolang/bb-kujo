@@ -9,7 +9,7 @@ const js=ts.transpile((cleanup+'\n'+effects).replace(/export /g,''),{target:ts.S
 const browser=await chromium.launch({channel:process.env.KUJO_BROWSER||'chrome',headless:true});
 const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'no-preference'});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
-await page.setContent('<html class="dark"><head></head><body><button>Run</button><input aria-label="Command"><div class="bb-code-highlight">Code</div><div data-timeline-row-id="settled"><span class="opacity-40">Worked for 85ms</span></div></body></html>');
+await page.setContent('<html class="dark"><head></head><body><aside data-sidebar="sidebar" style="position:absolute;inset:0 auto 0 0;width:20vw;background-color:#111111"></aside><main id="root-compose-main-panel" style="margin-left:20vw;min-height:90vh"><button>Run</button><input aria-label="Command" style="max-width:100%;box-sizing:border-box"><div class="bb-code-highlight">Code</div><div data-timeline-row-id="settled"><span class="opacity-40">Worked for 85ms</span></div></main></body></html>');
 const cdp=await page.context().newCDPSession(page);await cdp.send('Performance.enable');
 const metrics=async()=>Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map(m=>[m.name,m.value]));
 const before=await metrics();await page.waitForTimeout(13000);const base=await metrics();
@@ -23,7 +23,9 @@ assert.equal(check.decoration,'none');assert.equal(check.overflow,false);
 await page.getByRole('button',{name:'Run'}).focus();
 assert.equal(await page.getByRole('button').evaluate(e=>getComputedStyle(e).outlineStyle),'solid');
 await page.getByRole('textbox').fill('kujo check');assert.equal(await page.getByRole('textbox').inputValue(),'kujo check');
+assert.notEqual(await page.locator('[data-sidebar]').evaluate(e=>getComputedStyle(e,'::before').backgroundImage),'none');
 await page.emulateMedia({reducedMotion:'reduce'});
+assert.equal(await page.locator('[data-sidebar]').evaluate(e=>getComputedStyle(e,'::after').animationName),'none');
 assert.equal(await page.locator('.bb-kujo-signal > span').evaluate(e=>getComputedStyle(e).animationName),'none');
 await page.emulateMedia({reducedMotion:'no-preference'});
 for(const width of [375,768,1024,1440,2560]) {await page.setViewportSize({width,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);}
@@ -33,11 +35,13 @@ await page.evaluate(()=>{document.documentElement.className='dark';document.quer
 assert.equal(await page.locator('.bb-kujo-signal').evaluate(e=>getComputedStyle(e).display),'none');
 await page.evaluate(()=>{window.controller.abort();window.dispose();});
 assert.equal(await page.locator('.bb-kujo-signal').count(),0);
+assert.equal(await page.locator('.bb-kujo-brand').count(),0);
 const nodesBefore=await cdp.send('Memory.getDOMCounters');
 await page.evaluate(()=>{for(let i=0;i<100;i++){const c=new AbortController();const d=window.kujoTestMount({signal:c.signal});c.abort();d();}const c=new AbortController();c.abort();window.kujoTestMount({signal:c.signal});});
 await cdp.send('HeapProfiler.collectGarbage');
 const nodesAfter=await cdp.send('Memory.getDOMCounters');
 assert.equal(await page.locator('.bb-kujo-signal').count(),0);
+assert.equal(await page.locator('.bb-kujo-brand').count(),0);
 assert.ok(nodesAfter.jsEventListeners<=nodesBefore.jsEventListeners);
 assert.deepEqual(errors,[]);
 const report={kind:'Isolated Chromium CSS/content-script checks; not whole-app performance',date:new Date().toISOString(),browser:browser.version(),viewports:[375,768,1024,1440,2560],cycles:100,errors,checks:check,listenersBefore:nodesBefore.jsEventListeners,listenersAfter:nodesAfter.jsEventListeners,baselineTaskSeconds:base.TaskDuration-before.TaskDuration,themedTaskSeconds:end.TaskDuration-start.TaskDuration,baselineHeap:base.JSHeapUsedSize,themedHeap:end.JSHeapUsedSize,baselineLayoutCount:base.LayoutCount-before.LayoutCount,themedLayoutCount:end.LayoutCount-start.LayoutCount};

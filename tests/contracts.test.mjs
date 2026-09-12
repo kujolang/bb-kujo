@@ -47,3 +47,9 @@ test('mark is a local safe SVG without XML processing instructions',async()=>{
  const svg=await read('assets/kujo-mark.svg');
  assert.match(svg,/^<svg/); assert.doesNotMatch(svg,/<\?|<script|<foreignObject|\son\w+=|href=/i);
 });
+
+test('text remains AA over the brightest combined background decoration',()=>{
+ // Sidebar base + 5% rail + 8.5% art + 2.5% glitch rounds below #363636.
+ for(const fg of ['text','text-muted','text-faint','interactive','success','warning','danger','info','syntax-string','syntax-number','syntax-type','syntax-magenta'])
+  assert.ok(contrast(p[fg],'#363636')>=4.5,`${fg} on decorative composite`);
+});

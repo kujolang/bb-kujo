@@ -8,7 +8,7 @@
     "editor.selectionBackground": "#2b2b2b",
     "editor.inactiveSelectionBackground": "#1b1b1b",
     "editor.lineHighlightBackground": "#111111",
-    "editorLineNumber.foreground": "#969696",
+    "editorLineNumber.foreground": "#a3a3a3",
     "editorLineNumber.activeForeground": "#eeeeee",
     "editorIndentGuide.background1": "#3e3e3e",
     "editorIndentGuide.activeBackground1": "#858585",
@@ -46,7 +46,7 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "foreground": "#969696"
+        "foreground": "#a3a3a3"
       }
     },
     {
