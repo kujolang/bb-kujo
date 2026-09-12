@@ -17,3 +17,9 @@ Updated existing Strata note **9264d797-434a-4d76-bac2-e649921de6c1** to revisio
 ## Light appearance (0.2.0)
 
 Merged the native light-mode milestone, SiteKit mapping, shared signal/font/icon behavior, contrast bound and verification pointers into existing Agent Notes handoff `9264d797-434a-4d76-bac2-e649921de6c1`, revision 5. This explicitly supersedes the prior dark-only/light-fallback boundary. Deduplicated by repository search; exact retrieval and conceptual query `bb-kujo light mode SiteKit paper ink palette` both returned the updated note. No duplicate note or new unresolved finding was created. SignalBox: no captures warranted.
+
+## Live walkthrough
+
+Merged the real video milestone and reproduction/compatibility pointers into handoff `9264d797-434a-4d76-bac2-e649921de6c1`, revision 6. Exact and conceptual retrieval (`bb-kujo real video walkthrough Codex recording`) passed. Video artifacts are in commit 4be9f4d; the temporary CLI wrapper/catalog were removed after recording and the isolated app stopped.
+
+SignalBox: admitted only the unresolved global catalog/CLI schema mismatch. Capture `cap_46365212-67ee-4f85-a81b-59ac8bd67f0c`; Signal `sig_d98397c7-f03b-42fd-88f4-3d62bb2ed2d4`. Exact lookup of both IDs passed; `catalog` search returned the Capture and `Codex catalog` returned the Signal. No duplicates found in the pre-write exact/concept searches. Completed video work and routine test outcomes were rejected as Capture material and saved only in Strata.
