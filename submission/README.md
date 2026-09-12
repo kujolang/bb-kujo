@@ -1,6 +1,6 @@
 # Community marketplace submission
 
-Prepared for [get-bb/marketplace](https://github.com/get-bb/marketplace), category **Themes & Appearance**. This folder is a copy-ready bundle, not a second plugin. No pull request has been opened.
+Prepared for [get-bb/marketplace](https://github.com/get-bb/marketplace), category **Themes & Appearance**. This folder is a copy-ready bundle, not a second plugin. Submitted as [get-bb/marketplace#268](https://github.com/get-bb/marketplace/pull/268) from `robertdevore:codex/bb-kujo` on 2026-09-12.
 
 - `entries/bb-kujo.json`: listing and public Git range `^0.2.1`.
 - `icons/`: content-hashed Kujo SVG.

@@ -1,7 +1,7 @@
 # Session Memory · bb-kujo · Published Kujo adapter · 2026-09-12
 
 - Repository: https://github.com/kujolang/bb-kujo; local /Users/robertdevore/2026/Kujolang/kujo-repos/bb-kujo, main.
-- Current state: v0.2.1 at 6e84492 fixes reproduced light diff/merge contrast. All 14 plugin tests and native compiler pass. Community submission assets are pushed in 9c838c2; no PR or marketplace fork has been created. Registry build, v1 gate and full remote-source check pass; one independently reproduced upstream timestamp test failure remains disclosed.
+- Current state: v0.2.1 at 6e84492 fixes reproduced light diff/merge contrast. All 14 plugin tests and native compiler pass. Community submission assets are pushed in 9c838c2; marketplace PR https://github.com/get-bb/marketplace/pull/268 is open from robertdevore:codex/bb-kujo (supersedes the prior preparation-only state). Registry build, v1 gate and full remote-source check pass; one independently reproduced upstream timestamp test failure remains disclosed.
 - Milestones: initial research/adapter 013a12f and 20baac7; revised signature eb62706; verified editor compatibility repair c832771; public catalog/screenshots 2e9beb5. This state supersedes revision 1's missing-remote and unresolved-local-QA blockers.
 - User correction: the original edge-only signature looked generic. The required visual direction is recognizably kujolang.ai, not just dark tokens. The revision uses the actual Kujo workflow hero, locally optimized to 66,810 bytes, a shell mark, mechanical rails and 117ms background-only slice glitches every nine seconds.
 - Architecture: native bb.themes ID plugin:bb-kujo:kujo; centralized palette generates bb/code/ANSI/diffs. Static artwork and mark are embedded CSS variables; CSS pseudo-elements carry decoration. One inert content-script edge node owns hidden-tab pause and cleanup. No runtime network, timers, observers, text distortion or bb fork.
@@ -52,3 +52,9 @@ New unresolved upstream finding: registry test/marketplace.test.mjs:284 expects 
 Next step: review submission/pr-body.md, then create the marketplace fork/PR when requested. Carry the known upstream timestamp test exception; do not report an entirely green registry test suite. Read submission/validation.md for verified source and limits.
 
 Recall cues: bb-kujo marketplace submission bug sweep light diff contrast; v0.2.1 registry timestamp assertion.
+
+## Community marketplace PR opened — 2026-09-12
+
+At the user’s explicit request, created the robertdevore/marketplace fork, pushed codex/bb-kujo at f2ef88f, and opened https://github.com/get-bb/marketplace/pull/268 against get-bb/marketplace main. Verified the upstream base remains 5022d639 and the diff contains only the six validated entry/icon/overview/screenshot files. The public source remains bb-kujo ^0.2.1. The PR body includes prior successful validation and the independently reproduced upstream timestamp test exception. This supersedes the prior instruction to stop at prepared assets. No merge or marketplace approval is claimed; the next starting point is PR 268 for maintainer feedback. No new unresolved engineering finding was produced, so no new SignalBox capture is warranted.
+
+Recall cues: bb-kujo community marketplace PR 268 submitted robertdevore.
