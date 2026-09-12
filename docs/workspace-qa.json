@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-12T14:17:07.648Z",
+  "browser": "152.0.7977.84",
+  "editorTyping": true,
+  "editorUndo": true,
+  "terminalInputOutput": true,
+  "errors": [
+    [
+      "Error: Cannot read properties of undefined (reading '0')",
+      "",
+      "TypeError: Cannot read properties of undefined (reading '0')",
+      "    at R._deliverQueue (http://127.0.0.1:48896/api/v1/file-previews/c2a4944c-7dd7-49ec-b023-9cb81341f5b9/editor.js:7:3122)",
+      "    at R.fire (http://127.0.0.1:48896/api/v1/file-previews/c2a4944c-7dd7-49ec-b023-9cb81341f5b9/editor.js:7:3196)",
+      "    at Xg.dispose (http://127.0.0.1:48896/api/v1/file-previews/c2a4944c-7dd7-49ec-b023-9cb81341f5b9/editor.js:258:74824)",
+      "    at sz._postDetachModelCleanup (http://127.0.0.1:48896/api/v1/file-previews/c2a4944c-7dd7-49ec-b023-9cb81341f5b9/editor.js:864:3980)",
+      "    at sz.setModel (http://127.0.0.1:48896/api/v1/file-previews/c2a4944c-7dd7-49ec-b023-9cb81341f5b9/editor.js:272:718)",
+      "    at pD.value (http://127.0.0.1:48896/api/v1/file-previews/c2a4944c-7dd7-49ec-b023-9cb81341f5b9/editor.js:272:18247)",
+      "    at R._deliver (http://127.0.0.1:48896/api/v1/file-previews/c2a4944c-7dd7-49ec-b023-9cb81341f5b9/editor.js:7:3023)",
+      "    at R._deliverQueue (http://127.0.0.1:48896/api/v1/file-previews/c2a4944c-7dd7-49ec-b023-9cb81341f5b9/editor.js:7:3112)",
+      "    at R.fire (http://127.0.0.1:48896/api/v1/file-previews/c2a4944c-7dd7-49ec-b023-9cb81341f5b9/editor.js:7:3446)",
+      "    at Xg.dispose (http://127.0.0.1:48896/api/v1/file-previews/c2a4944c-7dd7-49ec-b023-9cb81341f5b9/editor.js:258:74824)",
+      "    at http://127.0.0.1:48896/api/v1/plugins/monaco-editor/assets/app.js?h=b5fdd3bf8bde4a29:1:26394",
+      "    at zc (http://127.0.0.1:48896/assets/boot-vendor-B1h9FjUL.js:8:92172)",
+      "    at Pl (http://127.0.0.1:48896/assets/boot-vendor-B1h9FjUL.js:8:110007)"
+    ]
+  ]
+}

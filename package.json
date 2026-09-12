@@ -1,21 +1,72 @@
 {
-  "name": "bb-kujo", "version": "0.1.0", "type": "module", "license": "MIT",
+  "name": "bb-kujo",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
   "description": "A Kujo / SiteKit design-system adapter for bb.",
-  "author": "Robert DeVore", "keywords": ["bb-plugin", "bb", "theme", "kujo", "sitekit"],
-  "engines": { "node": ">=22.19.0", "bb": ">=0.43.0 <0.44.0", "bbPluginSdk": ">=0.4.84 <0.5.0" },
-  "bb": {
-    "name": "Kujo", "description": "Mechanical workspace skin based on Kujo and SiteKit. Dark surfaces, hard edges, quiet signal.",
-    "branding": { "icon": "./assets/kujo-mark.svg" },
-    "server": "./src/plugin.ts", "app": "./src/app.ts", "skills": [],
-    "themes": [{ "id": "kujo", "name": "Kujo", "description": "Kujo dark workspace with matching code, diff and terminal colors.", "css": "./themes/kujo.css", "codeTheme": { "dark": "./themes/kujo-code.json" } }]
+  "author": "Robert DeVore",
+  "keywords": [
+    "bb-plugin",
+    "bb",
+    "theme",
+    "kujo",
+    "sitekit"
+  ],
+  "engines": {
+    "node": ">=22.19.0",
+    "bb": ">=0.43.0 <0.44.0",
+    "bbPluginSdk": ">=0.4.84 <0.5.0"
   },
-  "files": ["src/", "themes/", "assets/", "dist/", "README.md", "LICENSE", "THIRD_PARTY_NOTICES.md", "CHANGELOG.md", "docs/", "screenshots/"],
+  "bb": {
+    "name": "Kujo",
+    "description": "Mechanical workspace skin based on Kujo and SiteKit. Dark surfaces, hard edges, quiet signal.",
+    "branding": {
+      "icon": "./assets/kujo-mark.svg"
+    },
+    "server": "./src/plugin.ts",
+    "app": "./src/app.ts",
+    "skills": [],
+    "themes": [
+      {
+        "id": "kujo",
+        "name": "Kujo",
+        "description": "Kujo dark workspace with matching code, diff and terminal colors.",
+        "css": "./themes/kujo.css",
+        "codeTheme": {
+          "dark": "./themes/kujo-code.json"
+        }
+      }
+    ]
+  },
+  "files": [
+    "src/",
+    "themes/",
+    "assets/",
+    "dist/",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "CHANGELOG.md",
+    "docs/",
+    "screenshots/",
+    "scripts/",
+    "tests/",
+    "tsconfig.json"
+  ],
   "scripts": {
-    "generate": "node scripts/generate.mjs", "check:generated": "node scripts/generate.mjs --check",
-    "test": "node --test tests/*.test.mjs", "typecheck": "tsc --noEmit",
+    "generate": "node scripts/generate.mjs",
+    "check:generated": "node scripts/generate.mjs --check",
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit",
     "check": "npm run check:generated && npm run typecheck && npm test",
     "build": "npm run generate && npm run check && bb plugin build .",
-    "dev": "node scripts/dev.mjs", "qa": "node scripts/browser-qa.mjs"
+    "dev": "node scripts/dev.mjs",
+    "qa": "node scripts/browser-qa.mjs"
   },
-  "devDependencies": { "@get-bb/plugin-sdk": "0.4.84", "typescript": "^5.9.3", "@types/node": "^24.0.0", "playwright": "1.62.1" }
+  "devDependencies": {
+    "@get-bb/plugin-sdk": "0.4.84",
+    "typescript": "^5.9.3",
+    "@types/node": "^24.0.0",
+    "playwright": "1.62.1"
+  }
 }
