@@ -1,0 +1,33 @@
+✖ a later entry edit does not change its first addition date (276.471285ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 626.589862
+
+✖ failing tests:
+
+test at ../bb-marketplace-baseline/test/marketplace.test.mjs:256:1
+✖ a later entry edit does not change its first addition date (276.471285ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '2026-01-02T03:04:05+00:00'
+  - '2026-01-02T03:04:05Z'
+                        ^
+  
+      at TestContext.<anonymous> (file://<clean-upstream>/test/marketplace.test.mjs:284:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.start (node:internal/test_runner/test:1257:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '2026-01-02T03:04:05+00:00',
+    expected: '2026-01-02T03:04:05Z',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

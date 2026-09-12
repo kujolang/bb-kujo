@@ -1,0 +1,23 @@
+[
+  {
+    "path": "screenshots/bb-kujo/01-dark-workspace.png",
+    "width": 2880,
+    "height": 1920,
+    "bytes": 1080929,
+    "sha256": "e6c5b57b98e99b27a10cc0f51b1e42924ec7f88378573864ac9a0fbaff261199"
+  },
+  {
+    "path": "screenshots/bb-kujo/02-light-workspace.png",
+    "width": 2880,
+    "height": 1920,
+    "bytes": 820854,
+    "sha256": "e5da7acb2cf61c23e922e444c59fe9daa90cbbc718012b9e1e87ecf019e84cc8"
+  },
+  {
+    "path": "screenshots/bb-kujo/03-thread.png",
+    "width": 2880,
+    "height": 1920,
+    "bytes": 557842,
+    "sha256": "83b645e0a67c2bb0663ffb3f746f23bb3d420715e1e637d617a349504862bdf0"
+  }
+]

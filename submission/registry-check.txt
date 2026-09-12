@@ -1,0 +1,7 @@
+
+> check
+> node scripts/build.mjs --liveness
+
+warning: 1 unchanged entry files have no category.
+built dist/marketplace.json with 183 entries
+built dist/v2/marketplace.json with 183 entries
