@@ -39,3 +39,6 @@
 @media (prefers-reduced-motion: reduce) {
   :root.dark :where(button, input, textarea, select, [role="tab"]) { transition: none; }
 }
+/* bb dims settled timeline machinery to 40%; that defeats the AA text ladder.
+   Restore only its literal past-row class, leaving disabled control variants alone. */
+:root.dark [data-timeline-row-id] .opacity-40 { opacity: 1; }

@@ -29,7 +29,14 @@
     "merge.currentHeaderBackground": "#6fdc8c40",
     "merge.currentContentBackground": "#6fdc8c18",
     "merge.incomingHeaderBackground": "#7dd3fc40",
-    "merge.incomingContentBackground": "#7dd3fc18"
+    "merge.incomingContentBackground": "#7dd3fc18",
+    "editorBracketHighlight.foreground1": "#b8b8b8",
+    "editorBracketHighlight.foreground2": "#a7c7d1",
+    "editorBracketHighlight.foreground3": "#b8b8b8",
+    "editorBracketHighlight.foreground4": "#a7c7d1",
+    "editorBracketHighlight.foreground5": "#b8b8b8",
+    "editorBracketHighlight.foreground6": "#a7c7d1",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#ff8c8c"
   },
   "tokenColors": [
     {
