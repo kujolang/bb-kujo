@@ -1,6 +1,6 @@
 {
   "name": "bb-kujo",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "license": "MIT",
   "description": "A Kujo / SiteKit design-system adapter for bb.",
@@ -12,11 +12,11 @@
     "kujo",
     "sitekit"
   ],
-    "engines": {
-        "node": ">=22.23.4 <23 || >=24.22.1 <25 || >=26.12.1",
-        "bb": ">=0.43.0 <0.44.0",
-        "bbPluginSdk": ">=0.4.84 <0.5.0"
-    },
+  "engines": {
+    "node": ">=22.23.4 <23 || >=24.22.1 <25 || >=26.12.1",
+    "bb": ">=0.43.0 <0.44.0",
+    "bbPluginSdk": ">=0.4.84 <0.5.0"
+  },
   "bb": {
     "name": "Kujo",
     "description": "Mechanical workspace skin based on Kujo and SiteKit. Paper and ink, hard edges, quiet signal.",

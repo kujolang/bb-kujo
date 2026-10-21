@@ -1,5 +1,10 @@
 # Release notes
 
+## 0.2.2 — 2026-10-21
+
+- Refresh the supported Node.js versions and development dependencies.
+- Verify generated themes, contrast, lifecycle contracts and plugin bundles with the current toolchain.
+
 ## 0.2.1 — 2026-09-12
 
 - Reduce light diff and merge washes so comments and syntax retain AA contrast, including stacked Monaco word highlights.
