@@ -1,5 +1,9 @@
 # Kujo // bb
 
+[![Version](https://img.shields.io/badge/version-0.2.2-black)](https://github.com/kujolang/bb-kujo)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
+[![built for Kujo](https://img.shields.io/badge/built%20for-Kujo-white.svg)](https://github.com/kujolang/kujo)
+
 A light and dark theme for [bb](https://getbb.app/), built from the visual language of [Kujo](https://kujolang.ai/) and its [SiteKit](https://github.com/kujolang/site-kit) design system.
 
 Paper and ink. Hard edges. Quiet signal noise.
